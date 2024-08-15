@@ -10,7 +10,7 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   opts = {
-    modes = { "n", "no", "c" }, -- Change these modes
+    modes = { "n", "no" }, -- Change these modes
     -- to what you need
 
     hybrid_modes = { "n" }, -- Uses this feature on

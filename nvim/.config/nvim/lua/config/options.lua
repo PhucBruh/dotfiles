@@ -39,10 +39,3 @@ opt.cursorline = true -- highlight current line
 opt.hlsearch = true -- highlight all matches in search
 opt.ignorecase = true -- ignore case in search
 opt.smartcase = true -- match case if explicitly stated
-
-vim.api.nvim_create_autocmd({ "LspAttach", "InsertEnter", "InsertLeave" }, {
-  callback = function(args)
-    local enabled = args.event ~= "InsertEnter"
-    vim.lsp.inlay_hint.enable(enabled, { bufnr = args.buf })
-  end,
-})
