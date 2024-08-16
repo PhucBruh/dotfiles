@@ -5,5 +5,6 @@ stowa() {
     nvim \
     starship \
     tmux \
-    zsh
+    zsh \
+    kanata \
 }
