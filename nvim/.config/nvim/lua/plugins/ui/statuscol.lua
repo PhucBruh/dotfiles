@@ -7,10 +7,6 @@ return {
     require("statuscol").setup({
       relculright = true,
 
-      clickhandlers = {
-        Lnum = builtin.gitsigns_click,
-      },
-
       ft_ignore = {
         "alpha",
         "aerial",
@@ -32,34 +28,27 @@ return {
         "terminal",
       },
       segments = {
-        {
-          sign = {
-            name = { "GitSigns*" },
-            namespace = { "gitsigns" },
-            colwidth = 1,
-            fillchar = git_sign_icon,
-            fillcharhl = "Nrline",
-          },
-          click = "v:lua.ScSa",
-        },
+        -- {
+        --   sign = {
+        --     name = { "GitSigns*" },
+        --     namespace = { "gitsigns" },
+        --     colwidth = 1,
+        --     fillchar = git_sign_icon,
+        --     fillcharhl = "Nrline",
+        --   },
+        --   click = "v:lua.ScSa",
+        -- },
 
-        {
-          sign = {
-            name = { ".*" },
-            namespace = { ".*" },
-            maxwidth = 2,
-            colwidth = 2,
-            auto = false,
-            wrap = true,
-          },
-        },
-
-        {
-          text = { builtin.lnumfunc, " " },
-          maxwidth = 3,
-          colwidth = 3,
-          click = "v:lua.ScLa",
-        },
+        -- {
+        --   sign = {
+        --     name = { ".*" },
+        --     namespace = { ".*" },
+        --     maxwidth = 2,
+        --     colwidth = 2,
+        --     auto = false,
+        --     wrap = true,
+        --   },
+        -- },
 
         {
           text = {
@@ -75,6 +64,13 @@ return {
           wrap = true,
           colwidth = 1,
           click = "v:lua.ScFa",
+        },
+
+        {
+          text = { builtin.lnumfunc, " " },
+          maxwidth = 4,
+          colwidth = 4,
+          click = "v:lua.ScLa",
         },
       },
     })
