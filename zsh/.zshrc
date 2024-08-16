@@ -51,10 +51,6 @@ zinit cdreplay -q
 
 # Keybindings
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
-export FZF_DEFAULT_OPTS='
---bind "ctrl-j:accept"
---bind "ctrl-k:abort"
-'
 
 # History
 HISTSIZE=5000
@@ -79,6 +75,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 source ~/.config/zsh/exports.zsh
 source ~/.config/zsh/aliases.zsh
 source ~/.config/zsh/scripts.zsh
+source ~/.config/zsh/plugins/fzf.zsh
 
 # Shell integrations
 eval "$(fzf --zsh)"

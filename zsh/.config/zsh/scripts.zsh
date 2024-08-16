@@ -7,4 +7,7 @@ stowa() {
     tmux \
     zsh \
     kanata \
+    yazi \
+    lazygit \
+    bat \
 }
