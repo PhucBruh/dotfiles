@@ -3,6 +3,11 @@ local vaults = {
     name = "notes",
     path = "~/Workspace/notes",
   },
+
+  {
+    name = "TeamVault",
+    path = "~/Workspace/TeamVault",
+  },
 }
 
 return {
