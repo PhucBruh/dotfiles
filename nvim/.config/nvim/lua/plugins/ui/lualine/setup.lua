@@ -38,7 +38,7 @@ local diff = {
 
 local dia = {
   "diagnostics",
-  color = { fg = "#00BBCC" },
+  -- color = { fg = "#00BBCC" },
 }
 
 local function mode_icon()
@@ -100,10 +100,10 @@ require("lualine").setup({
       encoding,
       fileformat,
     },
-    lualine_z = {
-      dia,
-      "ex.lsp.single",
-    },
+    -- lualine_z = {
+    --   dia,
+    --   "ex.lsp.single",
+    -- },
   },
   inactive_sections = {
     lualine_a = {},
