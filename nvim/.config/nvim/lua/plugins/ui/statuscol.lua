@@ -51,6 +51,13 @@ return {
         -- },
 
         {
+          text = { builtin.lnumfunc, " " },
+          -- maxwidth = 4,
+          colwidth = 4,
+          click = "v:lua.ScLa",
+        },
+
+        {
           text = {
             function(args)
               args.fold.close = ""
@@ -64,13 +71,6 @@ return {
           wrap = true,
           colwidth = 1,
           click = "v:lua.ScFa",
-        },
-
-        {
-          text = { builtin.lnumfunc, " " },
-          maxwidth = 4,
-          colwidth = 4,
-          click = "v:lua.ScLa",
         },
       },
     })
