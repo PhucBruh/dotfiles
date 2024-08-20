@@ -19,21 +19,44 @@ map("n", "<C-Left>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Wi
 -- map("n", "<M-k>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
 -- map("n", "<M-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 
+-- stole from AstroNvim =))
+local function close(bufnr, force)
+  if not bufnr or bufnr == 0 then
+    bufnr = vim.api.nvim_get_current_buf()
+  end
+  local buftype = vim.bo[bufnr].buftype
+  vim.cmd(("silent! %s %d"):format((force or buftype == "terminal") and "bdelete!" or "confirm bdelete", bufnr))
+end
+
+local function close_all(keep_current, force)
+  if keep_current == nil then
+    keep_current = false
+  end
+  local current = vim.api.nvim_get_current_buf()
+  for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+    if not keep_current or bufnr ~= current then
+      close(bufnr, force)
+    end
+  end
+end
+
 -- buffers
-map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+-- stylua: ignore start
 map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
-map("n", "<leader>x", ":bd<cr>", { desc = "Close buffer" })
+map("n", "<leader>c", function() close_all(true) end, { desc = "Close all buffers except current" })
+map("n", "<leader>C", function() close_all()  end, { desc = "Close all buffers" })
+map("n", "<leader>b", "", { desc = "Buffer" })
+map("n", "<leader>bc", function() close() end, { desc = "Close buffer" })
+map("n", "<leader>bC", function() close(0, true) end, { desc = "Force close buffer" })
+-- stylua: ignore end
 
 -- Clear search with <esc>
 map({ "i", "n" }, "<C-c>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
 
 -- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua
+map("n", "<leader>u", "", { desc = "UI" })
 map(
   "n",
   "<leader>ur",
@@ -58,8 +81,8 @@ map("v", "<", "<gv")
 map("v", ">", ">gv")
 
 -- better jump line
-map("n", "<", "^", { noremap = true, silent = true })
-map("n", ">", "$", { noremap = true, silent = true })
+map("n", "H", "^", { noremap = true, silent = true })
+map("n", "L", "$", { noremap = true, silent = true })
 
 -- diagnostic
 local diagnostic_goto = function(next, severity)
@@ -77,8 +100,12 @@ map("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
 map("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
 
 -- quit
-map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
+map("n", "<leader>q", "<cmd>confirm q<CR>", { desc = "Quit Window" })
+map("n", "<leader>Q", "<cmd>confirm qall<CR>", { desc = "Exit Nvim" })
 
 -- better create line up or down (..may be)
 map("n", "<CR>", "o<Esc>")
 map("n", "<S-CR>", "O<Esc>")
+
+-- refactor
+-- map("n", "<CR>", "o<Esc>")
