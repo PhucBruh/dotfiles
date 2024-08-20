@@ -44,11 +44,10 @@ end
 -- stylua: ignore start
 map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map("n", "<leader>c", function() close_all(true) end, { desc = "Close all buffers except current" })
-map("n", "<leader>C", function() close_all()  end, { desc = "Close all buffers" })
-map("n", "<leader>b", "", { desc = "Buffer" })
-map("n", "<leader>bc", function() close() end, { desc = "Close buffer" })
-map("n", "<leader>bC", function() close(0, true) end, { desc = "Force close buffer" })
+map("n", "<leader>bc", function() close_all(true) end, { desc = "Close all buffers except current" })
+map("n", "<leader>bC", function() close_all()  end, { desc = "Close all buffers" })
+map("n", "<leader>c", function() close() end, { desc = "Close buffer" })
+map("n", "<leader>C", function() close(0, true) end, { desc = "Force close buffer" })
 -- stylua: ignore end
 
 -- Clear search with <esc>
@@ -106,6 +105,9 @@ map("n", "<leader>Q", "<cmd>confirm qall<CR>", { desc = "Exit Nvim" })
 -- better create line up or down (..may be)
 map("n", "<CR>", "o<Esc>")
 map("n", "<S-CR>", "O<Esc>")
+
+-- better backspace
+map("i", "<C-h>", "<Backspace>")
 
 -- refactor
 -- map("n", "<CR>", "o<Esc>")

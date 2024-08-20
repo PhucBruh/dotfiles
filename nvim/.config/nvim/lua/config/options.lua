@@ -3,6 +3,7 @@ local opt = vim.opt
 -- Left column and similar settings
 opt.number = true -- display line numbers
 opt.relativenumber = true -- display relative line numbers
+opt.number = true -- display relative line numbers
 opt.wrap = false -- display lines as single line
 opt.scrolloff = 10 -- number of lines to keep above/below cursor
 opt.sidescrolloff = 8 -- number of columns to keep to the left/right of cursor
