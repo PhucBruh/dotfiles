@@ -23,12 +23,6 @@ return {
         "vim",
         "vimdoc",
         "latex",
-
-        -- go
-        "go",
-        "gomod",
-        "gosum",
-        "gowork",
       },
       sync_install = false,
       highlight = { enable = true },

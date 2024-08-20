@@ -4,7 +4,6 @@ return {
   opts = {
     ensure_installed = {
       "lua_ls",
-      "gopls",
       "jqls",
       "taplo",
       "basedpyright",

@@ -13,8 +13,6 @@ return {
       },
     })
 
-    lspconfig.gopls.setup({})
-
     lspconfig.jqls.setup({})
 
     lspconfig.taplo.setup({})

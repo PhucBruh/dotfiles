@@ -18,5 +18,15 @@ return {
       end,
     })
   end,
-  opts = {},
+  opts = {
+    on_highlights = function(highlights, colors)
+      highlights.Visual = {
+        bg = "#364b8a",
+      }
+      highlights.Comment = {
+        fg = "#9ba4cc",
+        italic = true,
+      }
+    end,
+  },
 }

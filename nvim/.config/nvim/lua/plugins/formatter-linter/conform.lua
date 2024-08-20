@@ -14,7 +14,6 @@ return {
       xml = { "prettierd" },
       graphql = { "prettierd" },
       python = { "ruff" },
-      go = { "goimports" },
     },
   },
 }

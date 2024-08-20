@@ -12,8 +12,8 @@ return {
         -- python
         "debugpy",
 
-        -- go
-        "delve",
+        -- rust
+        "codelldb",
       },
     },
   },
@@ -35,6 +35,7 @@ return {
 
   -- stylua: ignore
     keys = {
+      { "<leader>d", "", desc = "Debug" },
       { "<leader>dc", require("dap").continue, desc = "Start/Continue" },
       { "<leader>dp", require("dap").pause , desc = "Pause" },
       { "<leader>dr", require("dap").restart , desc = "Restart" },
@@ -52,13 +53,20 @@ return {
       { "<leader>dh", require("dap.ui.widgets").hover, desc = "Debugger Hover" },
     },
     config = function()
+      local set_hl = vim.api.nvim_set_hl
+      set_hl(0, "db_blue", { fg = "#3d59a1" })
+      set_hl(0, "db_green", { fg = "#9ece6a" })
+      set_hl(0, "db_yellow", { fg = "#FFFF00" })
+      set_hl(0, "db_orange", { fg = "#f09000" })
+
+      -- stylua: ignore start
       local sign = vim.fn.sign_define
-      sign("DapBreakpoint", { text = "" })
-      sign("DapBreakpointCondition", { text = "", texthl = "", linehl = "", numhl = "" })
-      sign("DapLogPoint", { text = "󰁕", texthl = "", linehl = "", numhl = "" })
-      -- sign("DapStopped", { text = "󰛿", texthl = "", linehl = "", numhl = "" })
-      sign("DapStopped", { text = "󰁕", texthl = "", linehl = "", numhl = "" })
-      sign("DapBreakpointRejected", { text = "", texthl = "", linehl = "", numhl = "" })
+      sign('DapBreakpoint',          { text='', texthl='db_blue',   linehl='DapBreakpoint', numhl='DapBreakpoint' })
+      sign('DapBreakpointCondition', { text='', texthl='db_blue',   linehl='DapBreakpoint', numhl='DapBreakpoint' })
+      sign('DapBreakpointRejected',  { text='', texthl='db_orange', linehl='DapBreakpoint', numhl='DapBreakpoint' })
+      sign('DapStopped',             { text='󰁕', texthl='db_green',  linehl='DapBreakpoint', numhl='DapBreakpoint' })
+      sign('DapLogPoint',            { text='󰛿', texthl='db_yellow', linehl='DapBreakpoint', numhl='DapBreakpoint' })
+      -- stylua: ignore end
     end,
   },
 }

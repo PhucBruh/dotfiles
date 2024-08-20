@@ -1,3 +1,11 @@
+local function has_words_before()
+  local line, col = (unpack or table.unpack)(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+local function is_visible(cmp)
+  return cmp.core.view:visible() or vim.fn.pumvisible() == 1
+end
+
 -- nvim-cmp configuration
 local cmp = require("cmp")
 local luasnip = require("luasnip")
@@ -6,6 +14,7 @@ local lspkind = require("lspkind")
 require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup({
+  preselect = cmp.PreselectMode.None,
   formatting = {
     expandable_indicator = true,
     fields = { "kind", "abbr", "menu" },
@@ -29,39 +38,21 @@ cmp.setup({
 
   ---@Key-Cmp
   mapping = cmp.mapping.preset.insert({
-    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+    ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.abort(),
-    ["<C-j>"] = cmp.mapping.confirm({ select = true }),
-
-    ["<CR>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        if luasnip.expandable() then
-          luasnip.expand()
-        else
-          cmp.confirm({
-            select = true,
-          })
-        end
-      else
-        fallback()
-      end
-    end),
+    ["<C-y>"] = cmp.config.disable,
+    ["<C-j>"] = cmp.mapping(cmp.mapping.confirm({ select = false }), { "i", "c" }),
     ["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.locally_jumpable(1) then
-        luasnip.jump(1)
+      if vim.api.nvim_get_mode().mode ~= "c" and luasnip.expand_or_locally_jumpable() then
+        luasnip.expand_or_jump()
       else
         fallback()
       end
     end, { "i", "s" }),
-
     ["<S-Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.locally_jumpable(-1) then
+      if vim.api.nvim_get_mode().mode ~= "c" and luasnip.jumpable(-1) then
         luasnip.jump(-1)
       else
         fallback()
@@ -77,8 +68,16 @@ cmp.setup({
   }),
 
   window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(), -- Add border to documentation window
+    completion = cmp.config.window.bordered({
+      col_offset = -2,
+      side_padding = 0,
+      border = "rounded",
+      winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+    }),
+    documentation = cmp.config.window.bordered({
+      border = "rounded",
+      winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+    }),
   },
 })
 
@@ -97,4 +96,10 @@ cmp.setup.cmdline(":", {
   }, {
     { name = "cmdline" },
   }),
+})
+
+luasnip.setup({
+  history = true,
+  delete_check_events = "TextChanged",
+  region_check_events = "CursorMoved",
 })

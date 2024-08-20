@@ -39,16 +39,16 @@ return {
         --   click = "v:lua.ScSa",
         -- },
 
-        -- {
-        --   sign = {
-        --     name = { ".*" },
-        --     namespace = { ".*" },
-        --     maxwidth = 2,
-        --     colwidth = 2,
-        --     auto = false,
-        --     wrap = true,
-        --   },
-        -- },
+        {
+          sign = {
+            name = { ".*" },
+            namespace = { ".*" },
+            maxwidth = 2,
+            colwidth = 2,
+            auto = false,
+            wrap = true,
+          },
+        },
 
         {
           text = { builtin.lnumfunc, " " },

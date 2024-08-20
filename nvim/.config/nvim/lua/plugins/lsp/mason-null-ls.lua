@@ -14,17 +14,8 @@ return {
       "jq",
       "prettierd",
 
-      -- xml lint
-      "xmlint",
-
       -- python
       "ruff",
-
-      -- Java
-      "google-java-format",
-
-      -- Go
-      "goimports",
     },
   },
 }

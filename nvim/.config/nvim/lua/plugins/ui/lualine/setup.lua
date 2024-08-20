@@ -4,24 +4,8 @@ local filetype = {
   colored = true,
 }
 
-local fileformat = {
-  "fileformat",
-  color = { fg = "#4CD4BD" },
-}
-
-local encoding = {
-  "encoding",
-  color = { fg = "#00BFFF" },
-}
-
-local branch = {
-  "branch",
-  color = { fg = "#676B80" },
-}
-
 local diff = {
   "diff",
-  color = { fg = "#FF8F40" },
   colored = true, -- Displays a colored diff status if set to true
   diff_color = {
     -- Same color values as the general color option can be used here.
@@ -34,11 +18,6 @@ local diff = {
     modified = "~",
     removed = "-",
   }, -- Changes the symbols used by the diff.
-}
-
-local dia = {
-  "diagnostics",
-  -- color = { fg = "#00BBCC" },
 }
 
 local function mode_icon()
@@ -60,7 +39,6 @@ require("lualine").setup({
   options = {
     globalstatus = true,
     icons_enabled = true,
-    -- theme = theme,
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
     disabled_filetypes = {
@@ -92,18 +70,15 @@ require("lualine").setup({
         status = true,
       },
       filetype,
-      branch,
+      "branch",
       diff,
     },
     lualine_x = {},
     lualine_y = {
-      encoding,
-      fileformat,
+      "encoding",
+      "fileformat",
     },
-    -- lualine_z = {
-    --   dia,
-    --   "ex.lsp.single",
-    -- },
+    lualine_z = {},
   },
   inactive_sections = {
     lualine_a = {},

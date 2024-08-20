@@ -12,7 +12,14 @@ return {
           on_attach = function(client, bufnr) end,
           default_settings = {
             -- rust-analyzer language server configuration
-            ["rust-analyzer"] = {},
+            ["rust-analyzer"] = {
+              check = {
+                command = "clippy",
+                extraArgs = {
+                  "--no-deps",
+                },
+              },
+            },
           },
         },
         -- DAP configuration
@@ -22,19 +29,9 @@ return {
   },
   {
     "saecki/crates.nvim",
-    lazy = true,
-    tag = "stable",
-    opts = {
-      completion = {
-        cmp = { enabled = true },
-        crates = {
-          enabled = true,
-        },
-      },
-      null_ls = {
-        enabled = true,
-        name = "crates.nvim",
-      },
-    },
+    event = { "BufRead Cargo.toml" },
+    config = function()
+      require("crates").setup()
+    end,
   },
 }

@@ -3,9 +3,9 @@ return {
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
-    "hrsh7th/cmp-buffer",   -- Buffer source for nvim-cmp
-    "hrsh7th/cmp-path",     -- Path source for nvim-cmp
-    "hrsh7th/cmp-cmdline",  -- Cmdline source for nvim-cmp
+    "hrsh7th/cmp-buffer", -- Buffer source for nvim-cmp
+    "hrsh7th/cmp-path", -- Path source for nvim-cmp
+    "hrsh7th/cmp-cmdline", -- Cmdline source for nvim-cmp
 
     -- for luasnip and preset snippets
     "saadparwaiz1/cmp_luasnip",
