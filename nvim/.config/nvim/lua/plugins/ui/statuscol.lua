@@ -2,7 +2,6 @@ return {
   "luukvbaal/statuscol.nvim",
   branch = "0.10",
   config = function()
-    local git_sign_icon = "▎"
     local builtin = require("statuscol.builtin")
     require("statuscol").setup({
       relculright = true,
@@ -24,9 +23,11 @@ return {
         "dap-repl",
         "dapui_console",
       },
+
       bt_ignore = {
         "terminal",
       },
+
       segments = {
         -- {
         --   sign = {

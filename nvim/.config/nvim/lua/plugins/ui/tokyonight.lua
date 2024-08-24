@@ -27,6 +27,18 @@ return {
         fg = "#9ba4cc",
         italic = true,
       }
+      highlights.CursorLineNr = {
+        fg = "#2ac3de",
+        bold = true,
+        italic = true,
+      }
+      highlights.WinSeparator = {
+        fg = "#7aa2f7",
+        bold = true,
+      }
+      highlights.NvimTreeWinSeparator = {
+        fg = "#7aa2f7",
+      }
     end,
   },
 }

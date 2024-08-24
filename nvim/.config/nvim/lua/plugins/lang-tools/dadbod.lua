@@ -1,4 +1,5 @@
 return {
+  -- sql plugin
   "kristijanhusak/vim-dadbod-ui",
   dependencies = {
     { "tpope/vim-dadbod", lazy = true },
@@ -11,14 +12,6 @@ return {
     "DBUIFindBuffer",
   },
   init = function()
-    local function dbui_focus()
-      -- close alpha if is active
-      if vim.bo.filetype == "alpha" then
-        vim.cmd("bd")
-      end
-      vim.cmd("DBUI")
-    end
-
     local function dbui_toggle()
       -- close alpha if is active
       if vim.bo.filetype == "alpha" then
@@ -61,7 +54,10 @@ return {
 
     -- Disable some ui in DBUI
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = { "dbui", "dbout" },
+      pattern = {
+        "dbui",
+        "dbout",
+      },
       callback = function()
         vim.wo.winfixwidth = true
         vim.wo.winbar = nil
@@ -78,15 +74,12 @@ return {
         require("cmp").setup.buffer({
           sources = {
             { name = "vim-dadbod-completion" },
-            { name = "nvim_lsp" },
             { name = "luasnip" },
           },
         })
       end,
     })
 
-    map("n", "<leader><Tab>o", dbui_focus, { noremap = true, silent = true, desc = "Focus Dadbod" })
-    map("n", "<leader><Tab>e", dbui_toggle, { noremap = true, silent = true, desc = "Toggle Dadbod" })
-    map("n", "<leader><Tab>n", "<cmd>DBUIAddConnection<CR>", { noremap = true, silent = true, desc = "Add connection" })
+    map("n", "<leader>ud", dbui_toggle, { noremap = true, silent = true, desc = "DadbodUI Toggle" })
   end,
 }

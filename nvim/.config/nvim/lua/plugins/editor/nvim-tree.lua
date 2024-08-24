@@ -4,7 +4,7 @@ return {
   -- stylua: ignore
   keys = {
     { "<C-n>", mode = { "n", "i" }, "<cmd>NvimTreeToggle<CR>", desc = "Nvimtree toggle window" },
-    -- { "<C-e>", mode = { "n", "i" }, "<cmd>NvimTreeFocus<CR>", desc = "Nvimtree focus window" },
+    { "<leader>e", mode = { "n", "i" }, "<cmd>NvimTreeFocus<CR>", desc = "Nvimtree focus window" },
   },
   version = "*",
   opts = {

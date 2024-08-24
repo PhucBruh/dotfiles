@@ -1,6 +1,7 @@
 local map = vim.keymap.set
 
 return {
+  -- a rest client
   "mistweaverco/kulala.nvim",
   ft = "http",
   opts = {

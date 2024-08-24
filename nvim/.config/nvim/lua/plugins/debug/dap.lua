@@ -14,6 +14,9 @@ return {
 
         -- rust
         "codelldb",
+
+        -- js
+        "js-debug-adapter",
       },
     },
   },
@@ -61,11 +64,11 @@ return {
 
       -- stylua: ignore start
       local sign = vim.fn.sign_define
-      sign('DapBreakpoint',          { text='', texthl='db_blue',   linehl='DapBreakpoint', numhl='DapBreakpoint' })
-      sign('DapBreakpointCondition', { text='', texthl='db_blue',   linehl='DapBreakpoint', numhl='DapBreakpoint' })
-      sign('DapBreakpointRejected',  { text='', texthl='db_orange', linehl='DapBreakpoint', numhl='DapBreakpoint' })
-      sign('DapStopped',             { text='󰁕', texthl='db_green',  linehl='DapBreakpoint', numhl='DapBreakpoint' })
-      sign('DapLogPoint',            { text='󰛿', texthl='db_yellow', linehl='DapBreakpoint', numhl='DapBreakpoint' })
+      sign('DapBreakpoint',          { text='', texthl='db_blue'})
+      sign('DapBreakpointCondition', { text='', texthl='db_blue'})
+      sign('DapBreakpointRejected',  { text='', texthl='db_orange'})
+      sign('DapStopped',             { text='󰁕', texthl='db_green'})
+      sign('DapLogPoint',            { text='󰛿', texthl='db_yellow'})
       -- stylua: ignore end
     end,
   },

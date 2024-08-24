@@ -4,24 +4,38 @@ return {
   config = function()
     local opts = {
       ensure_installed = {
+        "lua",
+
         "c",
+
+        "http",
+
+        -- web dev
         "css",
         "html",
-        "http",
         "json",
         "jsonc",
         "jsdoc",
-        "lua",
+
+        "svelte",
+
         "markdown",
         "markdown_inline",
+
         "python",
+
         "query",
         "regex",
+
         "rust",
+
         "sql",
+
         "toml",
+
         "vim",
         "vimdoc",
+
         "latex",
       },
       sync_install = false,

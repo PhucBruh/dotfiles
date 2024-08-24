@@ -4,6 +4,8 @@ return {
     ft = "markdown",
     opts = {},
   },
+
+  --  this plugin for rendering markdown file
   {
     "OXY2DEV/markview.nvim",
     ft = "markdown",

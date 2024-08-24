@@ -10,9 +10,10 @@ return {
       -- lua
       "stylua",
 
+      "prettierd",
+
       -- json
       "jq",
-      "prettierd",
 
       -- python
       "ruff",

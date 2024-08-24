@@ -18,5 +18,37 @@ return {
     lspconfig.taplo.setup({})
 
     lspconfig.basedpyright.setup({})
+
+    -- webdev
+    lspconfig.html.setup({})
+    lspconfig.css.setup({})
+    lspconfig.emmet_ls.setup({})
+
+    lspconfig.svelte.setup({
+      settings = {
+        typescript = {
+          updateImportsOnFileMove = { enabled = "always" },
+          inlayHints = {
+            parameterNames = { enabled = "all" },
+            parameterTypes = { enabled = true },
+            variableTypes = { enabled = true },
+            propertyDeclarationTypes = { enabled = true },
+            functionLikeReturnTypes = { enabled = true },
+            enumMemberValues = { enabled = true },
+          },
+        },
+        javascript = {
+          updateImportsOnFileMove = { enabled = "always" },
+          inlayHints = {
+            parameterNames = { enabled = "literals" },
+            parameterTypes = { enabled = true },
+            variableTypes = { enabled = true },
+            propertyDeclarationTypes = { enabled = true },
+            functionLikeReturnTypes = { enabled = true },
+            enumMemberValues = { enabled = true },
+          },
+        },
+      },
+    })
   end,
 }
