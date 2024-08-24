@@ -10,4 +10,5 @@ stowa() {
     yazi \
     lazygit \
     bat \
+    wezterm \
 }
