@@ -92,7 +92,4 @@ return {
       lualine_z = {},
     },
   },
-  -- config = function()
-  --   require("plugins.ui.lualine.setup")
-  -- end,
 }
