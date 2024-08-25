@@ -106,8 +106,5 @@ map("n", "<leader>Q", "<cmd>confirm qall<CR>", { desc = "Exit Nvim" })
 map("n", "<CR>", "o<Esc>")
 map("n", "<S-CR>", "O<Esc>")
 
--- better backspace
-map("i", "<C-h>", "<Backspace>")
-
 -- refactor
 -- map("n", "<CR>", "o<Esc>")
