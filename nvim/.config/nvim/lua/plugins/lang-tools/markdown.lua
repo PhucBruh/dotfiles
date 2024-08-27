@@ -8,7 +8,7 @@ return {
   --  this plugin for rendering markdown file
   {
     "OXY2DEV/markview.nvim",
-    ft = "markdown",
+    ft = { "markdown", "quarto", "rmd" },
     dependencies = {
       -- You will not need this if you installed the
       -- parsers manually
@@ -30,6 +30,10 @@ return {
           vim.wo[win].conceallevel = 2
           vim.wo[win].conecalcursor = "c"
         end,
+      },
+
+      code_blocks = {
+        pad_amount = 0,
       },
     },
   },

@@ -13,7 +13,6 @@ return {
       { "<leader>f", group = "Telescope", icon = "" },
       { "<leader>e", icon = "󰌀" },
       { "<leader>b", group = "Buffer" },
-      { "<leader>m", group = "Multicurcors", icon = "󰇀" },
       { "<leader>ud", icon = "󰆼" },
 
       { "<leader>c", icon = "✗" },

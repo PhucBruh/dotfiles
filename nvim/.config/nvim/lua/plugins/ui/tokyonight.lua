@@ -19,24 +19,24 @@ return {
     })
   end,
   opts = {
-    on_highlights = function(highlights, colors)
-      highlights.Visual = {
+    on_highlights = function(hl, c)
+      hl.Visual = {
         bg = "#364b8a",
       }
-      highlights.Comment = {
+      hl.Comment = {
         fg = "#9ba4cc",
         italic = true,
       }
-      highlights.CursorLineNr = {
+      hl.CursorLineNr = {
         fg = "#2ac3de",
         bold = true,
         italic = true,
       }
-      highlights.WinSeparator = {
+      hl.WinSeparator = {
         fg = "#7aa2f7",
         bold = true,
       }
-      highlights.NvimTreeWinSeparator = {
+      hl.NvimTreeWinSeparator = {
         fg = "#7aa2f7",
       }
     end,

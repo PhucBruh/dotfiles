@@ -1,5 +1,3 @@
-vim.o.laststatus = 0
-
 vim.api.nvim_create_autocmd({ "LspAttach", "InsertEnter", "InsertLeave" }, {
   callback = function(args)
     local enabled = args.event ~= "InsertEnter"

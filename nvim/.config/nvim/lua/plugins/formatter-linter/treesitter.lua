@@ -6,8 +6,6 @@ return {
       ensure_installed = {
         "lua",
 
-        "c",
-
         "http",
 
         -- web dev
@@ -24,9 +22,6 @@ return {
 
         "python",
 
-        "query",
-        "regex",
-
         "rust",
 
         "sql",
@@ -35,8 +30,6 @@ return {
 
         "vim",
         "vimdoc",
-
-        "latex",
       },
       sync_install = false,
       highlight = { enable = true },

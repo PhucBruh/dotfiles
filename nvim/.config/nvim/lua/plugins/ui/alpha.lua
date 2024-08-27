@@ -38,6 +38,12 @@ return {
     dashboard.section.header.opts.hl = "AlphaHeader"
     -- dashboard.opts.layout[1].val = 4
 
+    vim.api.nvim_create_autocmd("Filetype", {
+      pattern = "alpha",
+      callback = function()
+        vim.opt_local.statuscolumn = ""
+      end,
+    })
     require("alpha").setup(dashboard.opts)
   end,
 }
