@@ -3,7 +3,6 @@ return {
   depencies = {
     "williamboman/mason.nvim",
   },
-  -- build = ":MasonToolsUpdate",
   config = function()
     require("mason-tool-installer").setup({
       ensure_installed = {
