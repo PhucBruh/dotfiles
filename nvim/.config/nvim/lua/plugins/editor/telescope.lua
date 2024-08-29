@@ -44,7 +44,6 @@ return {
     map("n", "gi", builtin.lsp_implementations, { desc = "LSP Implementations" })
     map("n", "gd", builtin.lsp_definitions, { desc = "LSP Definitions" })
     map("n", "gD", builtin.lsp_type_definitions, { desc = "LSP Type Definitions" })
-
     -- stylua: ignore end
 
     require("telescope").setup({
@@ -60,8 +59,6 @@ return {
         },
         mappings = {
           i = {
-            -- ["<C-J>"] = actions.move_selection_next,
-            -- ["<C-K>"] = actions.move_selection_previous,
             ["<C-j>"] = actions.select_default,
           },
           n = {

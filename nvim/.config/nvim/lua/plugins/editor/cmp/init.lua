@@ -12,7 +12,8 @@ return {
     "L3MON4D3/LuaSnip",
     "rafamadriz/friendly-snippets",
 
-    "onsails/lspkind.nvim", --Better look
+    --Better look
+    "onsails/lspkind.nvim",
   },
   config = function()
     require("plugins.editor.cmp.setup")

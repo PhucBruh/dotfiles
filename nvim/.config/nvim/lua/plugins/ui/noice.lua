@@ -6,6 +6,7 @@ return {
     "j-hui/fidget.nvim",
   },
   opts = {
+    cmdline = { view = "cmdline" },
     lsp = {
 
       -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -22,7 +23,8 @@ return {
       },
     },
     presets = {
-      lsp_doc_border = true,
+      bottom_search = true, -- use a classic bottom cmdline for search
+      lsp_doc_border = false, -- add a border to hover docs and signature help
     },
     commands = {
       enabled = false, -- Disable command output

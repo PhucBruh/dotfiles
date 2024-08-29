@@ -20,25 +20,11 @@ return {
   end,
   opts = {
     on_highlights = function(hl, c)
-      hl.Visual = {
-        bg = "#364b8a",
-      }
-      hl.Comment = {
-        fg = "#9ba4cc",
-        italic = true,
-      }
-      hl.CursorLineNr = {
-        fg = "#2ac3de",
-        bold = true,
-        italic = true,
-      }
-      hl.WinSeparator = {
-        fg = "#7aa2f7",
-        bold = true,
-      }
-      hl.NvimTreeWinSeparator = {
-        fg = "#7aa2f7",
-      }
+      hl.Visual = { bg = "#364b8a" }
+      hl.Comment = { fg = "#9ba4cc", italic = true }
+      hl.CursorLineNr = { fg = "#2ac3de", bold = true, italic = true }
+      hl.WinSeparator = { fg = "#7aa2f7", bold = true }
+      hl.NvimTreeWinSeparator = { fg = "#7aa2f7" }
     end,
   },
 }

@@ -55,7 +55,6 @@ map({ "i", "n" }, "<C-c>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsea
 
 -- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua
-map("n", "<leader>u", "", { desc = "UI" })
 map(
   "n",
   "<leader>ur",
@@ -105,6 +104,3 @@ map("n", "<leader>Q", "<cmd>confirm qall<CR>", { desc = "Exit Nvim" })
 -- better create line up or down (..may be)
 map("n", "<CR>", "o<Esc>")
 map("n", "<S-CR>", "O<Esc>")
-
--- refactor
--- map("n", "<CR>", "o<Esc>")

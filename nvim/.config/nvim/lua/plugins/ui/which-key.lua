@@ -10,17 +10,18 @@ return {
     local wk = require("which-key")
 
     wk.add({
+      { "<leader>d", group = "Debug" },
+
       { "<leader>f", group = "Telescope", icon = "" },
-      { "<leader>e", icon = "󰌀" },
       { "<leader>b", group = "Buffer" },
-      { "<leader>ud", icon = "󰆼" },
+      -- { "<leader>ud", icon = "󰆼" },
 
       { "<leader>c", icon = "✗" },
       { "<leader>C", icon = "✗" },
 
-      { "<leader>w", desc = "Save", icon = "󰆓" },
+      { "<leader>u", group = "UI" },
 
-      -- { "<leader>x", group = "Trouble", icon = "" },
+      { "<leader>w", desc = "Save", icon = "󰆓" },
     })
 
     wk.setup({
