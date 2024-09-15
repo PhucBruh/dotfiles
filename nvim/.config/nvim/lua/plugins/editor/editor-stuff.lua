@@ -24,16 +24,9 @@ return {
     end,
   },
 
-  {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {},
-  },
+  { "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {} },
 
-  {
-    "h-hg/fcitx.nvim",
-    event = "InsertLeave",
-  },
+  { "h-hg/fcitx.nvim", event = "InsertLeave" },
 
   {
     "folke/flash.nvim",

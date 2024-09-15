@@ -9,11 +9,7 @@ local neoscroll_k = {
 return {
   {
     "karb94/neoscroll.nvim",
-    opts = {
-      easing = "quadratic",
-      hide_cursor = false,
-      mappings = neoscroll_k,
-    },
+    opts = { easing = "quadratic", hide_cursor = false, mappings = neoscroll_k },
   },
 
   {
@@ -25,14 +21,15 @@ return {
     },
   },
 
-  {
-    "brenoprata10/nvim-highlight-colors",
-    opts = {},
-  },
+  { "brenoprata10/nvim-highlight-colors", opts = {} },
 
   {
-    -- Calls `require('slimline').setup({})`
-    "sschleemilch/slimline.nvim",
-    opts = { bold = true, verbose_mode = true, style = "fg" },
+    "echasnovski/mini.statusline",
+    version = "*",
+    config = function()
+      require("mini.statusline").setup()
+      -- Apply the global status
+      vim.opt.laststatus = 3
+    end,
   },
 }

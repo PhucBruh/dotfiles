@@ -57,6 +57,7 @@ return {
           height = 0.80,
           preview_cutoff = 120,
         },
+        borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
         mappings = {
           i = {
             ["<C-j>"] = actions.select_default,

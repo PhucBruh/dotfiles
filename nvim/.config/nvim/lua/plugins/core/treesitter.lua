@@ -30,6 +30,8 @@ return {
 
         "vim",
         "vimdoc",
+
+        "norg",
       },
       sync_install = false,
       highlight = { enable = true },

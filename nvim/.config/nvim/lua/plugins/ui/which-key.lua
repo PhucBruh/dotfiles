@@ -26,6 +26,9 @@ return {
 
     wk.setup({
       preset = "helix",
+      win = {
+        border = "single",
+      },
     })
   end,
 }

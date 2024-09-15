@@ -14,7 +14,7 @@ return {
   init = function()
     local function dbui_toggle()
       -- close alpha if is active
-      if vim.bo.filetype == "alpha" then
+      if vim.bo.filetype == "starter" then
         vim.cmd("bd")
       end
       vim.cmd("DBUIToggle")
