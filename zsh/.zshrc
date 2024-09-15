@@ -13,8 +13,9 @@ source "${ZINIT_HOME}/zinit.zsh"
 #####################
 # PROMPT            #
 #####################
-zinit ice from"gh-r" as"command" atload'eval "$(starship init zsh)"'
-zinit load starship/starship
+# zinit ice from"gh-r" as"command" atload'eval "$(starship init zsh)"'
+# zinit load starship/starship
+zinit light spaceship-prompt/spaceship-prompt
 
 zinit ice atinit"
         ZSH_TMUX_FIXTERM=true;
