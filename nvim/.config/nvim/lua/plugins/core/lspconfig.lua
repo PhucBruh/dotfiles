@@ -3,6 +3,8 @@ return {
   config = function()
     local lspconfig = require("lspconfig")
 
+    lspconfig.clangd.setup({})
+
     lspconfig.lua_ls.setup({
       settings = {
         Lua = {
@@ -17,7 +19,9 @@ return {
 
     lspconfig.taplo.setup({})
 
-    lspconfig.basedpyright.setup({})
+    -- lspconfig.basedpyright.setup({})
+    lspconfig.pyright.setup({})
+    -- lspconfig.python_lsp_server.setup({})
 
     -- webdev
     lspconfig.html.setup({})

@@ -8,6 +8,10 @@ return {
       ensure_installed = {
         "prettierd",
 
+        -- c++
+        "clangd",
+        "clang-format",
+
         -- lua
         "lua-language-server",
         "stylua",
@@ -23,7 +27,8 @@ return {
         "svelte-language-server",
 
         -- python
-        "basedpyright",
+        "pyright",
+        "python-lsp-server",
         "ruff",
         "debugpy",
 

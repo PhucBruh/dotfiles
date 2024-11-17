@@ -6,6 +6,8 @@ return {
       ensure_installed = {
         "lua",
 
+        "cpp",
+
         "http",
 
         -- web dev
