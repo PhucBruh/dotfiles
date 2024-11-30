@@ -13,7 +13,7 @@ return {
       hmtl = { "prettierd" },
       xml = { "prettierd" },
       graphql = { "prettierd" },
-      python = { "ruff" },
+      python = { "black" },
     },
   },
 }

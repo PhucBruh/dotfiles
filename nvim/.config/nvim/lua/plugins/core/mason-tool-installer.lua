@@ -28,8 +28,7 @@ return {
 
         -- python
         "pyright",
-        "python-lsp-server",
-        "ruff",
+        "black",
         "debugpy",
 
         -- rust

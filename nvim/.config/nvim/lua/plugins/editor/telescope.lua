@@ -40,7 +40,7 @@ return {
     map("n", "<leader>gt", function() builtin.git_status({ use_file_path = true }) end, { desc = "Status" })
 
     -- LSP Pickers
-    map("n", "gr", builtin.lsp_references, { desc = "LSP References" })
+    map("n", "grr", builtin.lsp_references, { desc = "LSP References" })
     map("n", "gi", builtin.lsp_implementations, { desc = "LSP Implementations" })
     map("n", "gd", builtin.lsp_definitions, { desc = "LSP Definitions" })
     map("n", "gD", builtin.lsp_type_definitions, { desc = "LSP Type Definitions" })

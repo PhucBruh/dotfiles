@@ -108,3 +108,4 @@ map("n", "<S-CR>", "O<Esc>")
 
 -- refactor
 -- map("n", "<CR>", "o<Esc>")
+map("n", "grn", vim.lsp.buf.rename, { desc = "Rename" })
