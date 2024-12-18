@@ -67,7 +67,10 @@ return {
             ["<C-j>"] = actions.select_default,
           },
         },
-        file_ignore_patterns = { "node_modules" },
+        file_ignore_patterns = {
+          "node_modules",
+          "target",
+        },
       },
     })
   end,

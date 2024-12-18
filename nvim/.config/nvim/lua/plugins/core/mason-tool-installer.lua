@@ -8,10 +8,6 @@ return {
       ensure_installed = {
         "prettierd",
 
-        -- c++
-        "clangd",
-        "clang-format",
-
         -- lua
         "lua-language-server",
         "stylua",
@@ -22,9 +18,6 @@ return {
         "emmet-ls",
 
         "js-debug-adapter",
-
-        -- svelte
-        "svelte-language-server",
 
         -- python
         "pyright",
