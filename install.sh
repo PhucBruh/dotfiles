@@ -58,10 +58,9 @@ fi
 step 6 $TOTAL "Installing Neovim (latest)..."
 curl -fL https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz \
   -o /tmp/nvim.tar.gz
-tar xzf /tmp/nvim.tar.gz -C /tmp
-mkdir -p "$HOME/.local/bin"
-cp -f /tmp/nvim-linux-x86_64/bin/nvim "$HOME/.local/bin/nvim"
-rm -rf /tmp/nvim-linux-x86_64 /tmp/nvim.tar.gz
+sudo rm -rf /opt/nvim-linux-x86_64
+sudo tar -C /opt -xzf /tmp/nvim.tar.gz
+rm -f /tmp/nvim.tar.gz
 
 # ── 6. herdr ───────────────────────────────────────────────────
 step 7 $TOTAL "Installing herdr..."
