@@ -66,11 +66,7 @@ fi
 
 # ── 7. Dotfiles ───────────────────────────────────────────────
 step 8 $TOTAL "Stowing dotfiles..."
-if [ ! -d "$HOME/dotfiles" ]; then
-  info "Cloning dotfiles..."
-  git clone https://github.com/PhucBruh/dotfiles.git "$HOME/dotfiles"
-fi
-cd "$HOME/dotfiles"
+cd "$(dirname "$0")"
 for dir in */; do
   dir="${dir%/}"
   stow -R "$dir" 2>/dev/null && info "  ✔ $dir" || err "  ✖ $dir"
