@@ -25,7 +25,7 @@ cd ~/dotfiles
 | zsh, stow, git, curl | System package manager |
 | Rust + cargo-binstall | rustup.sh |
 | eza, bat, starship, zoxide, ripgrep, fd-find, git-delta, yazi-fm | cargo-binstall (prebuilt) |
-| fzf | Git clone + install script |
+| fzf | GitHub release (via API) |
 | nvim | Official tarball |
 | herdr | Install script |
 | oh-my-zsh | Install script |

@@ -6,20 +6,21 @@ info()  { printf "${GREEN}%s${NC}\n" "$*"; }
 step()  { printf "${CYAN}[%d/%d]${NC} %s\n" $1 $2 "$3"; }
 err()   { printf "${RED}%s${NC}\n" "$*" >&2; }
 
-TOTAL=9
+TOTAL=8
 
 # ── 1. System packages ──────────────────────────────────────────
 step 1 $TOTAL "Installing system packages..."
+PKGS="zsh stow git curl unzip fzf"
 if command -v apt &>/dev/null; then
-  sudo apt update && sudo apt install -y zsh stow git curl unzip
+  sudo apt update && sudo apt install -y $PKGS
 elif command -v pacman &>/dev/null; then
-  sudo pacman -S --noconfirm zsh stow git curl unzip
+  sudo pacman -S --noconfirm $PKGS
 elif command -v dnf &>/dev/null; then
-  sudo dnf install -y zsh stow git curl unzip
+  sudo dnf install -y $PKGS
 elif command -v apk &>/dev/null; then
-  sudo apk add zsh stow git curl unzip
+  sudo apk add $PKGS
 else
-  err "No supported package manager found. Install: zsh, stow, git, curl, unzip"
+  err "No supported package manager found. Install: $PKGS"
   exit 1
 fi
 
@@ -42,16 +43,8 @@ step 4 $TOTAL "Installing tools via cargo-binstall..."
 cargo binstall -y \
   eza bat starship zoxide ripgrep fd-find git-delta yazi-fm
 
-# ── 4. fzf ──────────────────────────────────────────────────────
-step 5 $TOTAL "Installing fzf (latest)..."
-if ! command -v fzf &>/dev/null; then
-  git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
-  "$HOME/.fzf/install" --no-bash --no-zsh --no-fish --bin
-  cp "$HOME/.fzf/bin/fzf" "$HOME/.local/bin/"
-fi
-
-# ── 5. Neovim ──────────────────────────────────────────────────
-step 6 $TOTAL "Installing Neovim (latest)..."
+# ── 4. Neovim ──────────────────────────────────────────────────
+step 5 $TOTAL "Installing Neovim (latest)..."
 curl -fL https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz \
   -o /tmp/nvim.tar.gz
 tar xzf /tmp/nvim.tar.gz -C /tmp
@@ -59,20 +52,20 @@ mkdir -p "$HOME/.local/bin"
 cp -f /tmp/nvim-linux-x86_64/bin/nvim "$HOME/.local/bin/nvim"
 rm -rf /tmp/nvim-linux-x86_64 /tmp/nvim.tar.gz
 
-# ── 6. herdr ───────────────────────────────────────────────────
-step 7 $TOTAL "Installing herdr..."
+# ── 5. herdr ───────────────────────────────────────────────────
+step 6 $TOTAL "Installing herdr..."
 if ! command -v herdr &>/dev/null; then
   curl -fsSL https://herdr.dev/install.sh | sh
 fi
 
-# ── 7. oh-my-zsh ───────────────────────────────────────────────
-step 8 $TOTAL "Installing oh-my-zsh..."
+# ── 6. oh-my-zsh ───────────────────────────────────────────────
+step 7 $TOTAL "Installing oh-my-zsh..."
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
-# ── 8. Dotfiles ───────────────────────────────────────────────
-step 9 $TOTAL "Stowing dotfiles..."
+# ── 7. Dotfiles ───────────────────────────────────────────────
+step 8 $TOTAL "Stowing dotfiles..."
 if [ ! -d "$HOME/dotfiles" ]; then
   info "Cloning dotfiles..."
   git clone https://github.com/PhucBruh/dotfiles.git "$HOME/dotfiles"
