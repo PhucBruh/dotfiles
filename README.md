@@ -13,7 +13,7 @@ Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/).
 ## Quick start
 
 ```bash
-git clone https://github.com/$(whoami)/dotfiles ~/dotfiles
+git clone git@github.com:PhucBruh/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./setup.sh
 ```

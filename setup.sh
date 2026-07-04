@@ -57,7 +57,7 @@ fi
 step 7 $TOTAL "Stowing dotfiles..."
 if [ ! -d "$HOME/dotfiles" ]; then
   info "Cloning dotfiles..."
-  git clone https://github.com/$(whoami)/dotfiles "$HOME/dotfiles"
+  git clone git@github.com:PhucBruh/dotfiles.git "$HOME/dotfiles"
 fi
 cd "$HOME/dotfiles"
 for dir in */; do
