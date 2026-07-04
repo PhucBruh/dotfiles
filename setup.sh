@@ -6,7 +6,7 @@ info()  { printf "${GREEN}%s${NC}\n" "$*"; }
 step()  { printf "${CYAN}[%d/%d]${NC} %s\n" $1 $2 "$3"; }
 err()   { printf "${RED}%s${NC}\n" "$*" >&2; }
 
-TOTAL=8
+TOTAL=9
 
 # ── 1. System packages ──────────────────────────────────────────
 step 1 $TOTAL "Installing system packages..."
@@ -37,13 +37,22 @@ if ! command -v cargo-binstall &>/dev/null; then
     | bash
 fi
 
-# ── 3. Tools via cargo-binstall ─────────────────────────────────
+# ── 3. Tools via cargo-binstall ────────────────────────────────
 step 4 $TOTAL "Installing tools via cargo-binstall..."
 cargo binstall -y \
-  eza bat starship zoxide yazi ripgrep fd-find fzf git-delta
+  eza bat starship zoxide yazi ripgrep fd-find git-delta
 
-# ── 4. Neovim ──────────────────────────────────────────────────
-step 5 $TOTAL "Installing Neovim (latest)..."
+# ── 4. fzf ──────────────────────────────────────────────────────
+step 5 $TOTAL "Installing fzf (latest)..."
+if ! command -v fzf &>/dev/null; then
+  curl -fL https://github.com/junegunn/fzf/releases/latest/download/fzf-$(uname -s | tr '[:upper:]' '[:lower:]')_amd64.tar.gz \
+    -o /tmp/fzf.tar.gz
+  tar xzf /tmp/fzf.tar.gz -C "$HOME/.local/bin"
+  rm -f /tmp/fzf.tar.gz
+fi
+
+# ── 5. Neovim ──────────────────────────────────────────────────
+step 6 $TOTAL "Installing Neovim (latest)..."
 curl -fL https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz \
   -o /tmp/nvim.tar.gz
 tar xzf /tmp/nvim.tar.gz -C /tmp
@@ -51,20 +60,20 @@ mkdir -p "$HOME/.local/bin"
 cp -f /tmp/nvim-linux-x86_64/bin/nvim "$HOME/.local/bin/nvim"
 rm -rf /tmp/nvim-linux-x86_64 /tmp/nvim.tar.gz
 
-# ── 5. herdr ─────────────────────────────────────────────────────
-step 6 $TOTAL "Installing herdr..."
+# ── 6. herdr ───────────────────────────────────────────────────
+step 7 $TOTAL "Installing herdr..."
 if ! command -v herdr &>/dev/null; then
   curl -fsSL https://herdr.dev/install.sh | sh
 fi
 
-# ── 6. oh-my-zsh ────────────────────────────────────────────────
-step 7 $TOTAL "Installing oh-my-zsh..."
+# ── 7. oh-my-zsh ───────────────────────────────────────────────
+step 8 $TOTAL "Installing oh-my-zsh..."
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
-# ── 7. Dotfiles ────────────────────────────────────────────────
-step 8 $TOTAL "Stowing dotfiles..."
+# ── 8. Dotfiles ───────────────────────────────────────────────
+step 9 $TOTAL "Stowing dotfiles..."
 if [ ! -d "$HOME/dotfiles" ]; then
   info "Cloning dotfiles..."
   git clone https://github.com/PhucBruh/dotfiles.git "$HOME/dotfiles"
