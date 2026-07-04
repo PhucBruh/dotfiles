@@ -6,7 +6,7 @@ info()  { printf "${GREEN}%s${NC}\n" "$*"; }
 step()  { printf "${CYAN}[%d/%d]${NC} %s\n" $1 $2 "$3"; }
 err()   { printf "${RED}%s${NC}\n" "$*" >&2; }
 
-TOTAL=9
+TOTAL=10
 
 # ── 1. System packages ──────────────────────────────────────────
 step 1 $TOTAL "Installing system packages..."
@@ -40,7 +40,7 @@ fi
 # ── 3. Tools via cargo-binstall ────────────────────────────────
 step 4 $TOTAL "Installing tools via cargo-binstall..."
 cargo binstall -y \
-  eza bat starship zoxide yazi ripgrep fd-find git-delta
+  eza bat starship zoxide ripgrep fd-find git-delta
 
 # ── 4. fzf ──────────────────────────────────────────────────────
 step 5 $TOTAL "Installing fzf (latest)..."
@@ -51,8 +51,19 @@ if ! command -v fzf &>/dev/null; then
   rm -f /tmp/fzf.tar.gz
 fi
 
-# ── 5. Neovim ──────────────────────────────────────────────────
-step 6 $TOTAL "Installing Neovim (latest)..."
+# ── 5. yazi ─────────────────────────────────────────────────────
+step 6 $TOTAL "Installing yazi (latest)..."
+if ! command -v yazi &>/dev/null; then
+  curl -fL https://github.com/sxyazi/yazi/releases/latest/download/yazi-x86_64-unknown-linux-gnu.zip \
+    -o /tmp/yazi.zip
+  unzip -o /tmp/yazi.zip -d /tmp/yazi
+  cp -f /tmp/yazi/yazi-x86_64-unknown-linux-gnu/yazi "$HOME/.local/bin/"
+  cp -rf /tmp/yazi/yazi-x86_64-unknown-linux-gnu/ya* "$HOME/.local/bin/" 2>/dev/null || true
+  rm -rf /tmp/yazi.zip /tmp/yazi
+fi
+
+# ── 6. Neovim ──────────────────────────────────────────────────
+step 7 $TOTAL "Installing Neovim (latest)..."
 curl -fL https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz \
   -o /tmp/nvim.tar.gz
 tar xzf /tmp/nvim.tar.gz -C /tmp
@@ -60,20 +71,20 @@ mkdir -p "$HOME/.local/bin"
 cp -f /tmp/nvim-linux-x86_64/bin/nvim "$HOME/.local/bin/nvim"
 rm -rf /tmp/nvim-linux-x86_64 /tmp/nvim.tar.gz
 
-# ── 6. herdr ───────────────────────────────────────────────────
-step 7 $TOTAL "Installing herdr..."
+# ── 7. herdr ───────────────────────────────────────────────────
+step 8 $TOTAL "Installing herdr..."
 if ! command -v herdr &>/dev/null; then
   curl -fsSL https://herdr.dev/install.sh | sh
 fi
 
-# ── 7. oh-my-zsh ───────────────────────────────────────────────
-step 8 $TOTAL "Installing oh-my-zsh..."
+# ── 8. oh-my-zsh ───────────────────────────────────────────────
+step 9 $TOTAL "Installing oh-my-zsh..."
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
-# ── 8. Dotfiles ───────────────────────────────────────────────
-step 9 $TOTAL "Stowing dotfiles..."
+# ── 9. Dotfiles ───────────────────────────────────────────────
+step 10 $TOTAL "Stowing dotfiles..."
 if [ ! -d "$HOME/dotfiles" ]; then
   info "Cloning dotfiles..."
   git clone https://github.com/PhucBruh/dotfiles.git "$HOME/dotfiles"
