@@ -24,9 +24,10 @@ cd ~/dotfiles
 |---|---|
 | zsh, stow, git, curl | System package manager |
 | Rust + cargo-binstall | rustup.sh |
-| eza, bat, starship, zoxide, yazi, ripgrep, fd-find, fzf | cargo-binstall (prebuilt) |
+| eza, bat, starship, zoxide, yazi, ripgrep, fd-find, fzf, delta | cargo-binstall (prebuilt) |
 | nvim | Official tarball |
 | oh-my-zsh | Install script |
+
 ## Manual setup per machine
 
 - **Nerd Font** — `curl -fL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Iosevka.zip -o /tmp/Iosevka.zip && unzip -o /tmp/Iosevka.zip -d ~/.local/share/fonts && fc-cache -f`
