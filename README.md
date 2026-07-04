@@ -1,36 +1,27 @@
 # dotfiles
 
-Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/).
-
-## Prerequisites
-
-| What | Why |
-|---|---|
-| **sudo access** | Installing system packages |
-| **git** | Cloning the repo |
-| **curl** | Downloading installers |
-
 ## Quick start
 
 ```bash
 git clone https://github.com/PhucBruh/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-./setup.sh
+
+./install.sh   # install tools (run once)
+./setup.sh     # stow configs (run anytime)
 ```
 
-## What it installs
+## install.sh
 
-| Tool | Source |
+Installs tools:
+
+| Source | Tools |
 |---|---|
-| zsh, stow, git, curl | System package manager |
-| Rust + cargo-binstall | rustup.sh |
-| eza, bat, starship, zoxide, ripgrep, fd-find, git-delta, yazi-fm | cargo-binstall (prebuilt) |
-| fzf | GitHub release (via API) |
-| nvim | Official tarball |
-| herdr | Install script |
-| oh-my-zsh | Install script |
+| system pkm | zsh, stow, git, curl, unzip, fzf |
+| rustup | Rust + cargo-binstall |
+| cargo binstall | eza, bat, starship, zoxide, ripgrep, fd-find, git-delta, yazi-fm |
+| tarball | nvim |
+| install script | herdr, oh-my-zsh |
 
-## Manual setup per machine
+## setup.sh
 
-- **Nerd Font** — `curl -fL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Iosevka.zip -o /tmp/Iosevka.zip && unzip -o /tmp/Iosevka.zip -d ~/.local/share/fonts && fc-cache -f`
-- **Git identity** — update `~/.gitconfig` with your name/email if needed
+Stows all config dirs via GNU Stow.
