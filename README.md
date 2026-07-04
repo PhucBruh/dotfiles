@@ -26,10 +26,9 @@ cd ~/dotfiles
 | Rust + cargo-binstall | rustup.sh |
 | eza, bat, starship, zoxide, yazi, ripgrep, fd-find, fzf | cargo-binstall (prebuilt) |
 | nvim | Official tarball |
+| oh-my-zsh | Install script |
 
 ## Manual setup per machine
 
-Some tools need extra steps once:
-
-- **Nerd Font** — download from [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts) for icons
-- **oh-my-zsh** — `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+- **Nerd Font** — download from [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts) for icons in eza/yazi/starship
+- **Git identity** — update `~/.gitconfig` with your name/email if needed

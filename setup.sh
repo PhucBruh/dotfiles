@@ -6,7 +6,7 @@ info()  { printf "${GREEN}%s${NC}\n" "$*"; }
 step()  { printf "${CYAN}[%d/%d]${NC} %s\n" $1 $2 "$3"; }
 err()   { printf "${RED}%s${NC}\n" "$*" >&2; }
 
-TOTAL=6
+TOTAL=7
 
 # ── 1. System packages ──────────────────────────────────────────
 step 1 $TOTAL "Installing system packages..."
@@ -31,7 +31,7 @@ fi
 . "$HOME/.cargo/env"
 
 step 3 $TOTAL "Installing cargo-binstall..."
-cargo install cargo-binstall 2>/dev/null || true  # idempotent
+cargo install cargo-binstall 2>/dev/null || true
 
 # ── 3. Tools via cargo-binstall ─────────────────────────────────
 step 4 $TOTAL "Installing tools via cargo-binstall..."
@@ -47,8 +47,14 @@ mkdir -p "$HOME/.local/bin"
 cp -f /tmp/nvim-linux-x86_64/bin/nvim "$HOME/.local/bin/nvim"
 rm -rf /tmp/nvim-linux-x86_64 /tmp/nvim.tar.gz
 
-# ── 5. Dotfiles ────────────────────────────────────────────────
-step 6 $TOTAL "Stowing dotfiles..."
+# ── 5. oh-my-zsh ────────────────────────────────────────────────
+step 6 $TOTAL "Installing oh-my-zsh..."
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
+
+# ── 6. Dotfiles ────────────────────────────────────────────────
+step 7 $TOTAL "Stowing dotfiles..."
 if [ ! -d "$HOME/dotfiles" ]; then
   info "Cloning dotfiles..."
   git clone https://github.com/$(whoami)/dotfiles "$HOME/dotfiles"
