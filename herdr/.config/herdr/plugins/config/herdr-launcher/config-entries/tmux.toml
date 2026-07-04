@@ -1,0 +1,4 @@
+name = "tmux"
+description = "tmux config"
+path = "~/.tmux.conf"
+group = "Term"

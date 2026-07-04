@@ -1,0 +1,4 @@
+name = "Nvim"
+description = "Nvim configuration"
+path = "~/.config/nvim"
+group = "Editor"

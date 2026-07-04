@@ -1,0 +1,4 @@
+name = "Kitty"
+description = "Kitty configuration"
+path = "~/.config/kitty/"
+group = "Term"

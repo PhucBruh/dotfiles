@@ -1,0 +1,10 @@
+name = "Research"
+description = "Research workspace with browser and notes"
+group = "General"
+
+[[tab]]
+name = "notes"
+command = "nvim NOTES.md"
+
+[[tab]]
+name = "shell"

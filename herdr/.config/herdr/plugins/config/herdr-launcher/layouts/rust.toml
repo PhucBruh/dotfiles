@@ -1,0 +1,15 @@
+name = "Rust"
+description = "Rust development workspace"
+group = "Development"
+
+[[tab]]
+name = "editor"
+command = "nvim"
+
+[[tab]]
+name = "build"
+command = "cargo watch -x check"
+
+[[tab]]
+name = "tests"
+command = "cargo watch -x test"

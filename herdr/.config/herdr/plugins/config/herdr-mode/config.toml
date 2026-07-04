@@ -1,0 +1,61 @@
+[theme]
+accent = "#bd5eff"
+name_fg = "#ffffff"
+desc_fg = "#7b8496"
+key_fg = "#5ea1ff"
+footer_fg = "#7b8496"
+
+[[group]]
+id = "f"
+title = "Find"
+icon = "󰀻"
+description = "Navigate and manage your workspace"
+
+[[group.item]]
+key = "w"
+title = "Workspace"
+description = "Find all workspaces"
+action = "plugin_action"
+params.action_id = "herdr-launcher.workspace-picker"
+
+[[group.item]]
+key = "a"
+title = "Agent"
+description = "Find all agents"
+action = "plugin_action"
+params.action_id = "herdr-launcher.agent-picker"
+
+[[group.item]]
+key = "c"
+title = "Config"
+description = "Find all config"
+action = "plugin_action"
+params.action_id = "herdr-launcher.config-picker"
+
+[[group.item]]
+key = "i"
+title = "Tabs"
+description = "Find all tabs"
+action = "plugin_action"
+params.action_id = "herdr-launcher.tab-picker"
+
+[[group.item]]
+key = "l"
+title = "Layout"
+description = "Launch workspace layout"
+action = "plugin_action"
+params.action_id = "herdr-launcher.layout-launcher"
+
+[[group.item]]
+key = "f"
+title = "Files"
+description = "Browse files"
+action = "shell"
+params.command = "yazi"
+
+[[group.item]]
+key = "g"
+title = "Lazygit"
+description = "Open lazygit"
+action = "shell"
+params.command = "lazygit"
