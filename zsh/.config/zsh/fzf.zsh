@@ -1,6 +1,8 @@
 # Make fzf-tab use FZF_DEFAULT_OPTS (colors + ctrl-j binding)
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 
+eval "$(fzf --zsh)"
+
 export FZF_DEFAULT_OPTS="
   --bind 'ctrl-j:accept'
   --highlight-line
