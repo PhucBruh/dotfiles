@@ -45,10 +45,9 @@ cargo binstall -y \
 # ── 4. fzf ──────────────────────────────────────────────────────
 step 5 $TOTAL "Installing fzf (latest)..."
 if ! command -v fzf &>/dev/null; then
-  curl -fL https://github.com/junegunn/fzf/releases/latest/download/fzf-$(uname -s | tr '[:upper:]' '[:lower:]')_amd64.tar.gz \
-    -o /tmp/fzf.tar.gz
-  tar xzf /tmp/fzf.tar.gz -C "$HOME/.local/bin"
-  rm -f /tmp/fzf.tar.gz
+  git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
+  "$HOME/.fzf/install" --no-bash --no-zsh --no-fish --bin
+  cp "$HOME/.fzf/bin/fzf" "$HOME/.local/bin/"
 fi
 
 # ── 5. Neovim ──────────────────────────────────────────────────
