@@ -31,7 +31,11 @@ fi
 . "$HOME/.cargo/env"
 
 step 3 $TOTAL "Installing cargo-binstall..."
-cargo install cargo-binstall 2>/dev/null || true
+if ! command -v cargo-binstall &>/dev/null; then
+  curl -L --proto '=https' --tlsv1.2 -sSf \
+    https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh \
+    | bash
+fi
 
 # ── 3. Tools via cargo-binstall ─────────────────────────────────
 step 4 $TOTAL "Installing tools via cargo-binstall..."
