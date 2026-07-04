@@ -6,7 +6,7 @@ info()  { printf "${GREEN}%s${NC}\n" "$*"; }
 step()  { printf "${CYAN}[%d/%d]${NC} %s\n" $1 $2 "$3"; }
 err()   { printf "${RED}%s${NC}\n" "$*" >&2; }
 
-TOTAL=7
+TOTAL=8
 
 # ── 1. System packages ──────────────────────────────────────────
 step 1 $TOTAL "Installing system packages..."
@@ -47,14 +47,28 @@ mkdir -p "$HOME/.local/bin"
 cp -f /tmp/nvim-linux-x86_64/bin/nvim "$HOME/.local/bin/nvim"
 rm -rf /tmp/nvim-linux-x86_64 /tmp/nvim.tar.gz
 
-# ── 5. oh-my-zsh ────────────────────────────────────────────────
-step 6 $TOTAL "Installing oh-my-zsh..."
+# ── 5. Nerd Font ────────────────────────────────────────────────
+step 6 $TOTAL "Installing Iosevka Nerd Font..."
+FONT_DIR="$HOME/.local/share/fonts"
+if [ ! -f "$FONT_DIR/IosevkaNerdFont-Regular.ttf" ]; then
+  mkdir -p "$FONT_DIR"
+  curl -fL https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Iosevka/Regular/IosevkaNerdFont-Regular.ttf \
+    -o "$FONT_DIR/IosevkaNerdFont-Regular.ttf"
+  curl -fL https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Iosevka/Bold/IosevkaNerdFont-Bold.ttf \
+    -o "$FONT_DIR/IosevkaNerdFont-Bold.ttf"
+  curl -fL https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Iosevka/Italic/IosevkaNerdFont-Italic.ttf \
+    -o "$FONT_DIR/IosevkaNerdFont-Italic.ttf"
+  fc-cache -f
+fi
+
+# ── 6. oh-my-zsh ────────────────────────────────────────────────
+step 7 $TOTAL "Installing oh-my-zsh..."
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
-# ── 6. Dotfiles ────────────────────────────────────────────────
-step 7 $TOTAL "Stowing dotfiles..."
+# ── 7. Dotfiles ────────────────────────────────────────────────
+step 8 $TOTAL "Stowing dotfiles..."
 if [ ! -d "$HOME/dotfiles" ]; then
   info "Cloning dotfiles..."
   git clone https://github.com/$(whoami)/dotfiles "$HOME/dotfiles"

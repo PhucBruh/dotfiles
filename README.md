@@ -27,8 +27,8 @@ cd ~/dotfiles
 | eza, bat, starship, zoxide, yazi, ripgrep, fd-find, fzf | cargo-binstall (prebuilt) |
 | nvim | Official tarball |
 | oh-my-zsh | Install script |
+| Iosevka Nerd Font | GitHub releases |
 
 ## Manual setup per machine
 
-- **Nerd Font** — download from [ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts) for icons in eza/yazi/starship
 - **Git identity** — update `~/.gitconfig` with your name/email if needed
