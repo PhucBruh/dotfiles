@@ -50,16 +50,12 @@ rm -rf /tmp/nvim-linux-x86_64 /tmp/nvim.tar.gz
 # ── 5. Nerd Font ────────────────────────────────────────────────
 step 6 $TOTAL "Installing Iosevka Nerd Font..."
 FONT_DIR="$HOME/.local/share/fonts"
-if [ ! -f "$FONT_DIR/IosevkaNerdFont-Regular.ttf" ]; then
-  mkdir -p "$FONT_DIR"
-  curl -fL https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Iosevka/Regular/IosevkaNerdFont-Regular.ttf \
-    -o "$FONT_DIR/IosevkaNerdFont-Regular.ttf"
-  curl -fL https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Iosevka/Bold/IosevkaNerdFont-Bold.ttf \
-    -o "$FONT_DIR/IosevkaNerdFont-Bold.ttf"
-  curl -fL https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Iosevka/Italic/IosevkaNerdFont-Italic.ttf \
-    -o "$FONT_DIR/IosevkaNerdFont-Italic.ttf"
-  fc-cache -f
-fi
+mkdir -p "$FONT_DIR"
+curl -fL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Iosevka.zip \
+  -o /tmp/Iosevka.zip
+unzip -o /tmp/Iosevka.zip -d "$FONT_DIR" 2>/dev/null
+rm -f /tmp/Iosevka.zip
+fc-cache -f
 
 # ── 6. oh-my-zsh ────────────────────────────────────────────────
 step 7 $TOTAL "Installing oh-my-zsh..."
