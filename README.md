@@ -26,6 +26,7 @@ cd ~/dotfiles
 | Rust + cargo-binstall | rustup.sh |
 | eza, bat, starship, zoxide, yazi, ripgrep, fd-find, fzf, delta | cargo-binstall (prebuilt) |
 | nvim | Official tarball |
+| herdr | Install script |
 | oh-my-zsh | Install script |
 
 ## Manual setup per machine

@@ -6,7 +6,7 @@ info()  { printf "${GREEN}%s${NC}\n" "$*"; }
 step()  { printf "${CYAN}[%d/%d]${NC} %s\n" $1 $2 "$3"; }
 err()   { printf "${RED}%s${NC}\n" "$*" >&2; }
 
-TOTAL=7
+TOTAL=8
 
 # ── 1. System packages ──────────────────────────────────────────
 step 1 $TOTAL "Installing system packages..."
@@ -51,14 +51,20 @@ mkdir -p "$HOME/.local/bin"
 cp -f /tmp/nvim-linux-x86_64/bin/nvim "$HOME/.local/bin/nvim"
 rm -rf /tmp/nvim-linux-x86_64 /tmp/nvim.tar.gz
 
+# ── 5. herdr ─────────────────────────────────────────────────────
+step 6 $TOTAL "Installing herdr..."
+if ! command -v herdr &>/dev/null; then
+  curl -fsSL https://herdr.dev/install.sh | sh
+fi
+
 # ── 6. oh-my-zsh ────────────────────────────────────────────────
-step 6 $TOTAL "Installing oh-my-zsh..."
+step 7 $TOTAL "Installing oh-my-zsh..."
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
 # ── 7. Dotfiles ────────────────────────────────────────────────
-step 7 $TOTAL "Stowing dotfiles..."
+step 8 $TOTAL "Stowing dotfiles..."
 if [ ! -d "$HOME/dotfiles" ]; then
   info "Cloning dotfiles..."
   git clone https://github.com/PhucBruh/dotfiles.git "$HOME/dotfiles"
