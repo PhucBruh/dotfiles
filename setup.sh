@@ -36,7 +36,7 @@ cargo install cargo-binstall 2>/dev/null || true
 # ── 3. Tools via cargo-binstall ─────────────────────────────────
 step 4 $TOTAL "Installing tools via cargo-binstall..."
 cargo binstall -y \
-  eza bat starship zoxide yazi ripgrep fd-find fzf
+  eza bat starship zoxide yazi ripgrep fd-find fzf delta
 
 # ── 4. Neovim ──────────────────────────────────────────────────
 step 5 $TOTAL "Installing Neovim (latest)..."
