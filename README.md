@@ -16,7 +16,8 @@ Installs tools:
 
 | Source | Tools |
 |---|---|
-| system pkm | zsh, stow, git, curl, unzip, fzf |
+| system pkm | zsh, stow, git, curl, unzip |
+| GitHub release | fzf |
 | rustup | Rust + cargo-binstall |
 | cargo binstall | eza, bat, starship, zoxide, ripgrep, fd-find, git-delta, yazi-fm |
 | tarball | nvim |

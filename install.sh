@@ -6,11 +6,11 @@ info()  { printf "${GREEN}%s${NC}\n" "$*"; }
 step()  { printf "${CYAN}[%d/%d]${NC} %s\n" $1 $2 "$3"; }
 err()   { printf "${RED}%s${NC}\n" "$*" >&2; }
 
-TOTAL=7
+TOTAL=8
 
 # ── 1. System packages ──────────────────────────────────────────
 step 1 $TOTAL "Installing system packages..."
-PKGS="zsh stow git curl unzip fzf"
+PKGS="zsh stow git curl unzip"
 if command -v apt &>/dev/null; then
   sudo apt update && sudo apt install -y $PKGS
 elif command -v pacman &>/dev/null; then
@@ -43,8 +43,19 @@ step 4 $TOTAL "Installing tools via cargo-binstall..."
 cargo binstall -y \
   eza bat starship zoxide ripgrep fd-find git-delta yazi-fm
 
-# ── 4. Neovim ──────────────────────────────────────────────────
-step 5 $TOTAL "Installing Neovim (latest)..."
+# ── 4. fzf ─────────────────────────────────────────────────────
+step 5 $TOTAL "Installing fzf (latest)..."
+if ! command -v fzf &>/dev/null; then
+  FZF_VER=$(curl -s https://api.github.com/repos/junegunn/fzf/releases/latest \
+    | grep -oP '"tag_name": "\K[^"]+')
+  curl -fL "https://github.com/junegunn/fzf/releases/download/${FZF_VER}/fzf-${FZF_VER#v}-linux_amd64.tar.gz" \
+    -o /tmp/fzf.tar.gz
+  tar xzf /tmp/fzf.tar.gz -C "$HOME/.local/bin"
+  rm -f /tmp/fzf.tar.gz
+fi
+
+# ── 5. Neovim ──────────────────────────────────────────────────
+step 6 $TOTAL "Installing Neovim (latest)..."
 curl -fL https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz \
   -o /tmp/nvim.tar.gz
 tar xzf /tmp/nvim.tar.gz -C /tmp
@@ -52,14 +63,14 @@ mkdir -p "$HOME/.local/bin"
 cp -f /tmp/nvim-linux-x86_64/bin/nvim "$HOME/.local/bin/nvim"
 rm -rf /tmp/nvim-linux-x86_64 /tmp/nvim.tar.gz
 
-# ── 5. herdr ───────────────────────────────────────────────────
-step 6 $TOTAL "Installing herdr..."
+# ── 6. herdr ───────────────────────────────────────────────────
+step 7 $TOTAL "Installing herdr..."
 if ! command -v herdr &>/dev/null; then
   curl -fsSL https://herdr.dev/install.sh | sh
 fi
 
-# ── 6. oh-my-zsh ───────────────────────────────────────────────
-step 7 $TOTAL "Installing oh-my-zsh..."
+# ── 7. oh-my-zsh ───────────────────────────────────────────────
+step 8 $TOTAL "Installing oh-my-zsh..."
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
