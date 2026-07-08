@@ -1,0 +1,158 @@
+* {
+    bg:                         #16181a;
+    bg-alt:                     #1e2124;
+    bg-highlight:               #3c4048;
+    fg:                         #ffffff;
+    grey:                       #7b8496;
+    blue:                       #5ea1ff;
+    green:                      #5eff6c;
+    red:                        #ff6e5e;
+    yellow:                     #f1ff5e;
+    orange:                     #ffbd5e;
+    purple:                     #bd5eff;
+    cyan:                       #5ef1ff;
+    magenta:                    #ff5ef1;
+    pink:                       #ff5ea0;
+
+    background-color:           transparent;
+    text-color:                 @fg;
+    margin:                     0;
+    padding:                    0;
+    spacing:                    4;
+}
+
+window {
+    transparency:               "real";
+    background-color:           @bg;
+    text-color:                 @fg;
+    border-color:               @cyan;
+    border:                     1px;
+    width:                      38%;
+    location:                   center;
+    anchor:                     center;
+}
+
+mainbox {
+    spacing:                    6px;
+    padding:                    8px;
+    children:                   [ inputbar, listview, mode-switcher, message ];
+}
+
+inputbar {
+    spacing:                    8px;
+    padding:                    12px 16px;
+    children:                   [ prompt, entry ];
+}
+
+prompt {
+    text-color:                 @orange;
+    font:                       "mono 14";
+}
+
+entry {
+    text-color:                 @fg;
+    font:                       "mono 14";
+    placeholder:                "Search...";
+    placeholder-color:          @grey;
+    blink:                      true;
+    cursor:                     text;
+}
+
+listview {
+    columns:                    1;
+    lines:                      8;
+    spacing:                    4px;
+    cycle:                      true;
+    dynamic:                    true;
+    scrollbar:                  true;
+    scrollbar-width:            4px;
+    padding:                    4px 0;
+}
+
+element {
+    padding:                    10px 16px;
+    text-color:                 @fg;
+}
+
+element normal.normal {
+    background-color:           transparent;
+    text-color:                 @fg;
+}
+
+element normal.urgent {
+    background-color:           @red;
+    text-color:                 @bg;
+}
+
+element normal.active {
+    background-color:           @blue;
+    text-color:                 @bg;
+}
+
+element selected.normal {
+    background-color:           @bg-highlight;
+    text-color:                 @fg;
+}
+
+element selected.urgent {
+    background-color:           @red;
+    text-color:                 @bg;
+}
+
+element selected.active {
+    background-color:           @blue;
+    text-color:                 @bg;
+}
+
+element alternate.normal {
+    background-color:           @bg-alt;
+    text-color:                 @fg;
+}
+
+element alternate.urgent {
+    background-color:           @red;
+    text-color:                 @bg;
+}
+
+element alternate.active {
+    background-color:           @blue;
+    text-color:                 @bg;
+}
+
+element-icon {
+    size:                       24px;
+    padding:                    0 8px 0 0;
+    vertical-align:             0.5;
+}
+
+element-text {
+    vertical-align:             0.5;
+    highlight:                  bold;
+}
+
+scrollbar {
+    handle-width:               4px;
+    handle-color:               @blue;
+}
+
+mode-switcher {
+    spacing:                    8px;
+    padding:                    8px 16px;
+}
+
+button {
+    padding:                    6px 14px;
+    text-color:                 @grey;
+    font:                       "mono 12";
+}
+
+button selected {
+    background-color:           @bg-highlight;
+    text-color:                 @blue;
+}
+
+message {
+    padding:                    8px 16px;
+    text-color:                 @grey;
+    font:                       "mono 11";
+}
