@@ -6,7 +6,7 @@ cd "$(dirname "$0")"
 for dir in */; do
   dir="${dir%/}"
   case "$dir" in
-    install*|.git) continue ;;
+    install*|.git|wallpapers) continue ;;
   esac
   stow -R "$dir" 2>/dev/null && echo "  ✔ $dir" || echo "  ✖ $dir"
 done

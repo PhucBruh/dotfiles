@@ -1,0 +1,190 @@
+@define-color cd_bg #16181a;
+@define-color cd_bg_alt #1e2124;
+@define-color cd_bg_highlight #3c4048;
+@define-color cd_fg #ffffff;
+@define-color cd_grey #7b8496;
+@define-color cd_blue #5ea1ff;
+@define-color cd_green #5eff6c;
+@define-color cd_cyan #5ef1ff;
+@define-color cd_red #ff6e5e;
+@define-color cd_yellow #f1ff5e;
+@define-color cd_magenta #ff5ef1;
+@define-color cd_pink #ff5ea0;
+@define-color cd_orange #ffbd5e;
+@define-color cd_purple #bd5eff;
+
+/* Panel shell */
+.xfce4-panel .background,
+#XfcePanelWindow,
+#XfcePanelWindowWrapper {
+    background-color: @cd_bg;
+    border: none;
+    border-radius: 0;
+}
+
+.xfce4-panel .background {
+    padding: 0 2px;
+}
+
+/* Base button */
+.xfce4-panel button,
+.xfce4-panel .toggle {
+    font-family: "JetBrainsMono Nerd Font", "FiraCode Nerd Font", monospace;
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: @cd_fg;
+    background-color: @cd_bg_alt;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 3px 12px;
+    min-height: 20px;
+    transition: background-color 100ms ease;
+}
+
+/* Whisker menu */
+#whiskermenu-button {
+    background-color: @cd_purple;
+    color: @cd_bg;
+    border-radius: 0;
+    padding: 3px 14px;
+    font-weight: 800;
+}
+
+#whiskermenu-button:hover { background-color: @cd_magenta; }
+
+#whiskermenu-button:active { background-color: @cd_pink; }
+
+/* Launcher */
+#launcher-button {
+    background-color: @cd_bg_highlight;
+    border-radius: 0;
+    padding: 3px 10px;
+}
+
+#launcher-button:not(:last-child) {
+    border-right: 1px solid alpha(@cd_bg, 0.5);
+}
+
+#launcher-button:hover { background-color: alpha(@cd_blue, 0.25); }
+
+#launcher-button:active {
+    background-color: @cd_blue;
+    color: @cd_bg;
+}
+
+/* Tasklist */
+.xfce4-panel .tasklist .toggle {
+    background: @cd_bg_highlight;
+    border-radius: 0;
+}
+
+.xfce4-panel .tasklist .toggle:hover { background: alpha(@cd_blue, 0.25); }
+
+.xfce4-panel .tasklist .toggle:checked {
+    background: @cd_blue;
+    color: @cd_bg;
+}
+
+.xfce4-panel .tasklist .toggle:active {
+    background: @cd_cyan;
+    color: @cd_bg;
+}
+
+/* Workspace switcher */
+.xfce4-panel widget grid button.flat.toggle {
+    background: transparent;
+    color: @cd_grey;
+    border-radius: 0;
+    border-bottom: 2px solid transparent;
+    padding: 3px 12px 1px;
+    transition: all 100ms ease;
+}
+
+.xfce4-panel widget grid button.flat.toggle:hover {
+    background: alpha(@cd_blue, 0.1);
+    color: @cd_fg;
+    border-bottom: 2px solid alpha(@cd_blue, 0.4);
+}
+
+.xfce4-panel widget grid button.flat.toggle:checked,
+.xfce4-panel widget grid button.flat.toggle:active {
+    background: transparent;
+    color: @cd_cyan;
+    border-bottom: 2px solid @cd_cyan;
+    font-weight: 800;
+}
+
+/* System tray */
+#sn-button,
+#sn-button-box {
+    background-color: @cd_bg_highlight;
+    border-radius: 0;
+}
+
+#sn-button>*,
+#sn-button-box>* {
+    margin: 0;
+    padding: 0;
+}
+
+#sn-button>*:first-child,
+#sn-button-box>*:first-child { margin-left: 0; }
+
+#sn-button>*:last-child,
+#sn-button-box>*:last-child { margin-right: 0; }
+
+/* Power manager */
+#xfce4-power-manager-plugin {
+    background-color: @cd_grey;
+    color: @cd_bg;
+    border-radius: 0;
+    font-weight: 800;
+}
+
+#xfce4-power-manager-plugin:hover { background-color: alpha(@cd_grey, 0.75); }
+
+/* PulseAudio */
+#pulseaudio-button {
+    background-color: @cd_orange;
+    color: @cd_bg;
+    border-radius: 0;
+    font-weight: 800;
+}
+
+#pulseaudio-button:hover { background-color: alpha(@cd_orange, 0.75); }
+
+/* Clock */
+#clock-button {
+    background-color: @cd_cyan;
+    color: @cd_bg;
+    border-radius: 0;
+    font-weight: 700;
+    transition: background-color 120ms ease;
+}
+
+#clock-button:hover { background-color: @cd_blue; }
+
+#clock-button:active { background-color: @cd_purple; }
+
+#clock-button label { color: @cd_bg; }
+
+/* Session / action */
+#actions-button {
+    background-color: @cd_red;
+    color: @cd_bg;
+    border-radius: 0;
+    font-weight: 800;
+    transition: background-color 120ms ease;
+}
+
+#actions-button image,
+#actions-button label { color: @cd_bg; }
+
+#actions-button:hover { background-color: alpha(@cd_red, 0.75); }
+
+#actions-button:active,
+#actions-button:checked {
+    background-color: @cd_yellow;
+    color: @cd_bg;
+}
