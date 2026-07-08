@@ -11,7 +11,7 @@ map("n", "<C-Up>", "<cmd>resize +5<CR>", { desc = "Increase height" })
 map("n", "<C-Down>", "<cmd>resize -5<CR>", { desc = "Decrease height" })
 map("n", "<C-Right>", "<cmd>vertical resize +5<CR>", { desc = "Increase width" })
 
--- Insert mode cursor movement (like readline/emacs)
+-- Insert mode cursor movement
 map("i", "<C-d>", "<Left>", { desc = "Move cursor left" })
 map("i", "<C-f>", "<Right>", { desc = "Move cursor right" })
 

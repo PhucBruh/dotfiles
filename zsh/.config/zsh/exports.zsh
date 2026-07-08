@@ -22,3 +22,6 @@ export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 export GOROOT="$HOME/.local/share/go"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+
+export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_STYLE_OVERRIDE=qt5ct-style

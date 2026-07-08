@@ -1,4 +1,0 @@
-name = "Ghostty"
-description = "Terminal configuration"
-path = "~/.config/ghostty/config.ghostty"
-group = "Term"

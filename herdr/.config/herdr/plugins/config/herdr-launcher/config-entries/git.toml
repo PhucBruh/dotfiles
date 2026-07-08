@@ -1,4 +1,0 @@
-name = "Git"
-description = "Git global configuration"
-path = "~/.gitconfig"
-group = "git"

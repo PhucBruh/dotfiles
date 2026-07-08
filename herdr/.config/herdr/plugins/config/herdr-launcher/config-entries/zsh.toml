@@ -1,4 +1,0 @@
-name = "Zsh Config"
-description = "Z shell configuration"
-path = "~/.config/zsh/.zshrc"
-group = "Shell"

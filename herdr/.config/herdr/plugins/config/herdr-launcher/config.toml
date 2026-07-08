@@ -4,6 +4,11 @@
 
 editor = "nvim"
 
+[layout]
+fields = ["name", "description", "subtitle"]
+group_position = "prefix"
+spacing = 2
+
 [theme]
 accent = "#bd5eff"
 match = "#f1ff5e"

@@ -1,4 +1,0 @@
-name = "Herdr Config"
-description = "Terminal multiplexer configuration"
-path = "~/.config/herdr/config.toml"
-group = "Term"
