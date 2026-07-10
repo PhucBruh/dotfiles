@@ -18,12 +18,23 @@ if [ "${1:-}" = "--preview" ]; then
     line="$(grep -m1 "^${2}"$'\t' <<< "$ENTRIES")"
     [ -z "$line" ] && exit 0
     IFS=$'\t' read -r _ dir a b <<< "$line"
-    [ "$a" = "--file" ] && tl::preview::file "$dir/$b" || tl::preview::tree "$dir"
+    if [ "$a" = "--file" ]; then
+        printf 'dir: %s\n---\n' "$dir"
+        tl::preview::file "$dir/$b"
+    else
+        tl::preview::tree "$dir"
+    fi
     exit 0
 fi
 
 items() {
-    while IFS=$'\t' read -r n d r; do printf '%s\t%s\t%s\n' "$n" "$n" "$d"; done <<< "$ENTRIES"
+    while IFS=$'\t' read -r n d a b; do
+        if [ "$a" = "--file" ]; then
+            printf '%s\t%s\t%s\n' "$n" "$n" "$d/$b"
+        else
+            printf '%s\t%s\t%s\n' "$n" "$n" "$d"
+        fi
+    done <<< "$ENTRIES"
 }
 
 result="$(items | tl::fzf --border-label ' Dotfiles ' --prompt "Dotfiles > " --with-nth "2" \
