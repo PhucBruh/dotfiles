@@ -10,7 +10,24 @@ require("blink.cmp").setup({
     documentation = {
       auto_show = false,
     },
-    menu = { border = "none" },
+    menu = {
+      border = "none",
+      draw = {
+        padding = 1,
+        gap = 1,
+
+        columns = {
+          { "kind_icon" },
+          {
+            "label",
+            "label_description",
+            gap = 1,
+            width = { fill = true },
+          },
+          { "source_name" },
+        },
+      },
+    },
   },
 
   sources = {

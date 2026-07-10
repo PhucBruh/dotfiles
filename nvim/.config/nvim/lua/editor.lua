@@ -8,6 +8,9 @@ require("tmux").setup({
     enable_default_keybindings = false,
     persist_zoom = true,
   },
+  copy_sync = {
+    sync_clipboard = false,
+  },
 })
 
 vim.keymap.set({ "n", "x", "o" }, "<M-h>", function() require("tmux").move_left() end)
