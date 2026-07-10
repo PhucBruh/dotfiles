@@ -21,7 +21,7 @@ Installs tools:
 | rustup | Rust + cargo-binstall |
 | cargo binstall | eza, bat, starship, zoxide, ripgrep, fd-find, git-delta, yazi-fm |
 | tarball | nvim |
-| install script | herdr, oh-my-zsh |
+| install script | oh-my-zsh |
 
 ## setup.sh
 
@@ -39,7 +39,6 @@ Stows all config dirs via GNU Stow:
 | [`yazi`](yazi/) | Yazi file manager |
 | [`eza`](eza/) | eza (ls alternative) theme |
 | [`git`](git/) | Git config and ignore |
-| [`herdr`](herdr/) | herdr launcher and modes |
 | [`rofi`](rofi/) | Rofi launcher config |
 
 Wallpapers in [`wallpapers/`](wallpapers/) are not stowed.

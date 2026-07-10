@@ -62,13 +62,7 @@ sudo rm -rf /opt/nvim-linux-x86_64
 sudo tar -C /opt -xzf /tmp/nvim.tar.gz
 rm -f /tmp/nvim.tar.gz
 
-# ── 6. herdr ───────────────────────────────────────────────────
-step 7 $TOTAL "Installing herdr..."
-if ! command -v herdr &>/dev/null; then
-  curl -fsSL https://herdr.dev/install.sh | sh
-fi
-
-# ── 7. oh-my-zsh ───────────────────────────────────────────────
+# ── 6. oh-my-zsh ───────────────────────────────────────────────
 step 8 $TOTAL "Installing oh-my-zsh..."
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
