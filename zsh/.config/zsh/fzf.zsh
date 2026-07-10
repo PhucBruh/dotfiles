@@ -4,6 +4,7 @@ zstyle ':fzf-tab:*' use-fzf-default-opts yes
 eval "$(fzf --zsh)"
 
 export FZF_DEFAULT_OPTS="
+  --bind 'ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up' 
   --bind 'ctrl-j:accept'
   --highlight-line
   --info=inline-right
