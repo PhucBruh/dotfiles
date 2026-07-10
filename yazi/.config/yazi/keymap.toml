@@ -1,0 +1,26 @@
+#:schema https://yazi-rs.github.io/schemas/keymap.json
+
+[mgr]
+prepend_keymap = [
+    { on = "<C-j>", run = "enter", desc = "Enter child directory" },
+]
+
+[pick]
+prepend_keymap = [
+    { on = "<C-j>", run = "close --submit", desc = "Submit the pick" },
+]
+
+[input]
+prepend_keymap = [
+    { on = "<C-j>", run = "close --submit", desc = "Submit input" },
+]
+
+[confirm]
+prepend_keymap = [
+    { on = "<C-j>", run = "close --submit", desc = "Submit the confirm" },
+]
+
+[cmp]
+prepend_keymap = [
+    { on = "<C-j>", run = [ "close --submit", "input:close --submit" ], desc = "Complete and submit the input" },
+]

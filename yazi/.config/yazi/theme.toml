@@ -5,7 +5,6 @@
 # tmTheme files can be found here: https://github.com/scottmckendry/cyberdream.nvim/tree/main/extras/textmate 
 syntect_theme = "../bat/themes/cyberdream.tmTheme"
 
-border_style = { fg = "#3c4048" }
 cwd = { fg = "#5ef1ff" }
 find_keyword = { bold = true, fg = "#5eff6c" }
 find_position = { fg = "#ffffff" }
@@ -15,6 +14,7 @@ marker_selected = { bg = "#3c4048", fg = "#5eff6c" }
 count_selected = { bg = "#5eff6c", fg = "#16181a" }
 count_copied = { bg = "#f1ff5e", fg = "#16181a" }
 count_cut = { bg = "#ff6e5e", fg = "#16181a" }
+border_style = { fg = "#7aa2f7" }
 
 [cmp]
 active = { bg = "#7b8496", fg = "#bd5eff" }
@@ -24,6 +24,11 @@ inactive = { fg = "#ffffff" }
 [tabs]
 active = { bg = "#5ea1ff", fg = "#16181a" }
 inactive = { bg = "#3c4048", fg = "#ffffff" }
+
+[indicator]
+padding = { open = "▐", close = "▌" }
+current = { fg = "#ffffff", bg = "#253547", bold = true }
+parent = { fg = "#ffffff", bg = "#253547", bold = true }
 
 [filetype]
 rules = [
