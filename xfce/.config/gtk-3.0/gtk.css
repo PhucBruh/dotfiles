@@ -146,13 +146,13 @@
 
 /* PulseAudio */
 #pulseaudio-button {
-    background-color: @cd_orange;
+    background-color: @cd_green;
     color: @cd_bg;
     border-radius: 0;
     font-weight: 800;
 }
 
-#pulseaudio-button:hover { background-color: alpha(@cd_orange, 0.75); }
+#pulseaudio-button:hover { background-color: alpha(@cd_green, 1.75); }
 
 /* Clock */
 #clock-button {
