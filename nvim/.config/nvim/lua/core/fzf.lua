@@ -54,16 +54,25 @@ local function show_tree()
   open_float(vim.fn.systemlist(cmd), " " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t") .. " ")
 end
 
+vim.api.nvim_set_hl(0, "MyFzfBorder", {
+  fg = "#7aa2f7",
+  bg = "NONE",
+})
+
 require("fzf-lua").setup({
   winopts = {
-    border = "none",
+    border = "single",
     width = 0.8,
     height = 0.9,
     preview = {
-      border = "none",
+      border = "single",
       layout = "vertical",
       vertical = "up:60%",
     },
+  },
+  hls = {
+    border = "MyFzfBorder",
+    preview_border = "MyFzfBorder",
   },
 
   file_ignore_patterns = {

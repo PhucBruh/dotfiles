@@ -3,6 +3,25 @@ require("mini.comment").setup()
 require("leap").setup({})
 require("origami").setup()
 require("nvim-surround").setup()
+require("tmux").setup({
+  navigation = {
+    enable_default_keybindings = false,
+    persist_zoom = true,
+  },
+  resize = {
+    enable_default_keybindings = false,
+  },
+})
+
+vim.keymap.set({ "n", "x", "o" }, "<M-h>", function() require("tmux").move_left() end)
+vim.keymap.set({ "n", "x", "o" }, "<M-j>", function() require("tmux").move_bottom() end)
+vim.keymap.set({ "n", "x", "o" }, "<M-k>", function() require("tmux").move_top() end)
+vim.keymap.set({ "n", "x", "o" }, "<M-l>", function() require("tmux").move_right() end)
+
+vim.keymap.set("n", "<M-H>", function() require("tmux").resize_left() end)
+vim.keymap.set("n", "<M-J>", function() require("tmux").resize_bottom() end)
+vim.keymap.set("n", "<M-K>", function() require("tmux").resize_top() end)
+vim.keymap.set("n", "<M-L>", function() require("tmux").resize_right() end)
 
 require("mini.pairs").setup()
 local map_pairs = function(lhs, rhs)

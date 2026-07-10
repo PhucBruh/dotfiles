@@ -48,6 +48,7 @@ vim.pack.add({
   { src = cb("andyg/leap.nvim") },
   { src = gh("kylechui/nvim-surround"), version = vim.version.range("4.x") },
   { src = gh("chrisgrieser/nvim-origami") },
+  { src = gh("aserowy/tmux.nvim") },
 
   -- UI
   { src = gh("folke/which-key.nvim") },

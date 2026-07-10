@@ -1,4 +1,4 @@
-local org_dir = vim.fn.expand("~/org/")
+local org_dir = vim.fn.expand("~/Documents/org/")
 local Menu = require("org-modern.menu")
 
 require("orgmode").setup({
@@ -50,4 +50,3 @@ require("org-bullets").setup({
     headlines = { "◉", "○", "✸", "✿" },
   },
 })
-
