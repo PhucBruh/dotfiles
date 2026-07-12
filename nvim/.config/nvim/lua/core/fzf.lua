@@ -50,8 +50,26 @@ local function show_messages()
 end
 
 local function show_tree()
-  local cmd = vim.fn.executable("tree") == 1 and "tree --noreport" or "find . | sort"
-  open_float(vim.fn.systemlist(cmd), " " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t") .. " ")
+  local cwd = vim.fn.getcwd()
+  local result = vim
+    .system({
+      "eza",
+      "--tree",
+      "--git-ignore",
+      "--icons=always",
+      "--no-quotes",
+      "--ignore-glob=.git|node_modules|__pycache__|.DS_Store|*.pyc|venv|.venv",
+      "--group-directories-first",
+      "--level=4",
+      cwd,
+    }, { text = true })
+    :wait()
+
+  local lines = vim.split(vim.trim(result.stdout), "\n")
+  if #lines == 0 then
+    return vim.notify("No tree output")
+  end
+  open_float(lines, " " .. vim.fn.fnamemodify(cwd, ":t") .. " ")
 end
 
 vim.api.nvim_set_hl(0, "MyFzfBorder", {
