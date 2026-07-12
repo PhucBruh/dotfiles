@@ -35,7 +35,3 @@ require("blink.cmp").setup({
   },
   fuzzy = { implementation = "prefer_rust_with_warning" },
 })
-
-vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "#141a22" })
-vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { bg = "#16181a" })
-vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#2a2d31", fg = "#7bdff2" })

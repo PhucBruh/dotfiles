@@ -1,3 +1,17 @@
+require("cyberdream").setup({
+  overrides = function()
+    local border = { fg = "#7aa2f7", bg = "NONE" }
+    return {
+      FloatBorder = border,
+      MiniFilesBorder = border,
+      MiniFilesBorderModified = border,
+      BlinkCmpMenu = { bg = "#141a22" },
+      BlinkCmpMenuBorder = { bg = "#16181a" },
+      BlinkCmpMenuSelection = { bg = "#2a2d31", fg = "#7bdff2" },
+    }
+  end,
+})
+
 vim.cmd.colorscheme("cyberdream")
 
 require("mini.icons").setup()
@@ -49,9 +63,9 @@ wk.setup({
 
 wk.add({
   { "<leader>?", group = "Buf keymap", icon = "" },
-  { "<leader>f", group = "Find",       icon = "" },
-  { "g",           group = "Goto / LSP", icon = "󰌒" },
-  { "z",           group = "Folds",     icon = "" },
+  { "<leader>f", group = "Find", icon = "" },
+  { "g", group = "Goto / LSP", icon = "󰌒" },
+  { "z", group = "Folds", icon = "" },
 })
 
 vim.keymap.set("n", "<leader>?", function()
