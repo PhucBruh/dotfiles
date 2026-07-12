@@ -5,6 +5,8 @@ configuration {
     icon-theme:         "gnome";
     kb-cancel:          "Control+c,Escape";
     kb-accept-entry:    "Control+j,Return";
+    matching: "fuzzy";
+    sort: true;
+    sorting-method: "fzf";
+    font: "JetBrains Mono Nerdfont 14";
 }
-
-
