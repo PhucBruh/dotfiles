@@ -40,8 +40,7 @@ items() {
 result="$(items | tl::fzf --border-label ' Dotfiles ' --prompt "Dotfiles > " --with-nth "2" \
     --preview "'$SELF' --preview {1}")"
 [ -z "$result" ] && exit 0
-line="$(tail -n+2 <<< "$result")"
-[ -z "$line" ] && exit 0
+line="$result"
 
 name="$(cut -f1 <<< "$line")"
 entry="$(grep -m1 "^${name}"$'\t' <<< "$ENTRIES")"
