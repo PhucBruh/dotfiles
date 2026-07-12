@@ -8,6 +8,5 @@ require("config.autocmds")
 
 require("core")
 require("editor")
-require("lang")
 require("tools")
 require("ui")
