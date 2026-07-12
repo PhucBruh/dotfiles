@@ -13,10 +13,18 @@ require("tmux").setup({
   },
 })
 
-vim.keymap.set({ "n", "x", "o" }, "<M-h>", function() require("tmux").move_left() end)
-vim.keymap.set({ "n", "x", "o" }, "<M-j>", function() require("tmux").move_bottom() end)
-vim.keymap.set({ "n", "x", "o" }, "<M-k>", function() require("tmux").move_top() end)
-vim.keymap.set({ "n", "x", "o" }, "<M-l>", function() require("tmux").move_right() end)
+vim.keymap.set({ "n", "x", "o" }, "<M-h>", function()
+  require("tmux").move_left()
+end)
+vim.keymap.set({ "n", "x", "o" }, "<M-j>", function()
+  require("tmux").move_bottom()
+end)
+vim.keymap.set({ "n", "x", "o" }, "<M-k>", function()
+  require("tmux").move_top()
+end)
+vim.keymap.set({ "n", "x", "o" }, "<M-l>", function()
+  require("tmux").move_right()
+end)
 
 require("mini.pairs").setup()
 local map_pairs = function(lhs, rhs)
@@ -30,17 +38,20 @@ map_pairs("<C-u>", 'v:lua.MiniPairs.bs("\21")')
 vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap-forward)")
 vim.keymap.set({ "n", "x", "o" }, "S", "<Plug>(leap-backward)")
 
-require("oil").setup({
-  columns = {
-    "icon",
+require("mini.files").setup({
+  windows = {
+    preview = true,
+    width_focus = 30,
+    width_preview = 50,
   },
-  view_options = {
-    show_hidden = true,
+  mappings = {
+    go_in = "<CR>",
+    go_in_plus = "l",
+    go_out = "-",
+    go_out_plus = "h",
   },
-  keymaps = {
-    ["<CR>"] = false,
-    ["<C-j>"] = "actions.select",
-  },
-  delete_to_trash = true,
 })
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+vim.keymap.set("n", "-", function()
+  MiniFiles.open()
+end, { desc = "Open mini.files" })
