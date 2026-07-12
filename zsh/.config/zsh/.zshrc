@@ -6,6 +6,7 @@ plugins=(
     git
     sudo
     fzf
+    tmux
     vi-mode
     zsh-autosuggestions
     zsh-syntax-highlighting
