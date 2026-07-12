@@ -16,6 +16,7 @@
   home.stateVersion = "26.05"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
+    stow
 
     # font
     nerd-fonts.jetbrains-mono
