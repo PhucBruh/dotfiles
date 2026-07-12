@@ -5,12 +5,6 @@ if (( $+commands[eza] )); then
   alias tree='eza --tree --icons'
 fi
 
-if (( $+commands[batcat] )); then
-  alias bat='batcat'
-  alias cat='batcat --paging=never'
-elif (( $+commands[bat] )); then
-  alias cat='bat --paging=never'
-fi
 
 alias pvenv='[ -f .venv/bin/activate ] && source .venv/bin/activate || source venv/bin/activate'
 alias nv='nvim'
