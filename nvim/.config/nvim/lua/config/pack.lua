@@ -6,8 +6,6 @@ local cb = function(x) return 'https://codeberg.org/' .. x end
 vim.pack.add({
   -- LSP Native
   { src = gh("neovim/nvim-lspconfig") },
-  { src = gh("mason-org/mason.nvim") },
-  { src = gh("WhoIsSethDaniel/mason-tool-installer.nvim") },
 
   -- Treesitter
   { src = gh("nvim-treesitter/nvim-treesitter") },
@@ -17,21 +15,27 @@ vim.pack.add({
   { src = gh("Saghen/blink.cmp"), version = vim.version.range("1.x") },
   { src = gh("rafamadriz/friendly-snippets") },
 
-  -- Orgmode
-  { src = gh("nvim-orgmode/orgmode") },
-  { src = gh("chipsenkbeil/org-roam.nvim") },
-  { src = gh("akinsho/org-bullets.nvim") },
-  { src = gh("danilshvalov/org-modern.nvim") },
+  -- Notes (zk)
+  { src = gh("zk-org/zk-nvim"), ft = "markdown" },
 
-  -- Formatting (Format on save)
+  -- Formatting
   { src = gh("stevearc/conform.nvim") },
 
+  -- Rust
+  { src = "https://github.com/mrcjkb/rustaceanvim", version = vim.version.range("^9"), ft = "rust" },
+
   -- Notebook
-  { src = gh("sheng-tse/jupynvim"), name = "jupynvim" },
+  { src = gh("sheng-tse/jupynvim"), name = "jupynvim", ft = "ipynb" },
 
   -- Markdown
-  { src = gh("YousefHadder/markdown-plus.nvim") },
-  { src = gh("MeanderingProgrammer/render-markdown.nvim") },
+  { src = gh("YousefHadder/markdown-plus.nvim"), ft = "markdown" },
+  { src = gh("MeanderingProgrammer/render-markdown.nvim"), ft = "markdown" },
+  { src = gh("techwizrd/render-latex.nvim"), ft = "markdown" },
+  { src = gh("3rd/image.nvim"), ft = "markdown" },
+  { src = gh("Jacky-Lzx/img-clip.nvim"), ft = "markdown" },
+
+  -- Typst
+  { src = gh("chomosuke/typst-preview.nvim"), ft = "typst" },
 
   -- Git
   { src = gh("lewis6991/gitsigns.nvim") },
@@ -39,12 +43,8 @@ vim.pack.add({
   -- mini.nvim
   { src = gh("nvim-mini/mini.nvim"), version = "stable" },
 
-  -- snack.nvim
-  { src = gh("folke/snacks.nvim") },
-
   -- Editor & UX
-  { src = gh("ibhagwan/fzf-lua") },
-  { src = gh("stevearc/oil.nvim") },
+  { src = gh("ibhagwan/fzf-lua"), keys = { "<leader>f", "<leader>?" } },
   { src = cb("andyg/leap.nvim") },
   { src = gh("kylechui/nvim-surround"), version = vim.version.range("4.x") },
   { src = gh("chrisgrieser/nvim-origami") },
