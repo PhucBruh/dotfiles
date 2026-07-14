@@ -65,6 +65,7 @@ opt.inccommand = "nosplit"
 -- window
 opt.splitright = true
 opt.splitbelow = true
+vim.o.winborder = "single"
 
 -- performance
 opt.timeoutlen = 300

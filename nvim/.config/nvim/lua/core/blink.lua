@@ -8,10 +8,13 @@ require("blink.cmp").setup({
 
   completion = {
     documentation = {
+      window = {
+        border = "single",
+      },
       auto_show = false,
     },
     menu = {
-      border = "none",
+      border = "single",
       draw = {
         padding = 1,
         gap = 1,

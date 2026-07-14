@@ -25,6 +25,10 @@
     ### Editor
     neovim
 
+    # parser
+    tree-sitter
+    clang
+
     ### Notes
     zk
 

@@ -45,13 +45,27 @@ require("mini.files").setup({
     width_preview = 50,
   },
   mappings = {
-    go_in = "<CR>",
+    close = "<C-c>",
+    go_in = "<C-j>",
     go_in_plus = "l",
     go_out = "-",
     go_out_plus = "h",
   },
 })
 
-vim.keymap.set("n", "-", function()
+vim.keymap.set("n", "_", function()
   MiniFiles.open()
 end, { desc = "Open mini.files" })
+
+require("oil").setup({
+  delete_to_trash = true,
+  keymaps = {
+    ["<C-j>"] = "actions.select",
+    ["<C-c>"] = { "actions.close", mode = "n" },
+  },
+  view_options = {
+    -- Show files and directories that start with "."
+    show_hidden = true,
+  },
+})
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })

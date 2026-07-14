@@ -10,6 +10,9 @@ vim.pack.add({
   -- Treesitter
   { src = gh("nvim-treesitter/nvim-treesitter") },
 
+  -- Formatting
+  { src = gh("stevearc/conform.nvim") },
+
   -- Autocompletion & Snippets
   { src = gh("saghen/blink.lib") },
   { src = gh("Saghen/blink.cmp"), version = vim.version.range("1.x") },
@@ -18,8 +21,9 @@ vim.pack.add({
   -- Notes (zk)
   { src = gh("zk-org/zk-nvim"), ft = "markdown" },
 
-  -- Formatting
-  { src = gh("stevearc/conform.nvim") },
+  -- Image
+  { src = gh("3rd/image.nvim") },
+  { src = gh("Jacky-Lzx/img-clip.nvim") },
 
   -- Rust
   { src = "https://github.com/mrcjkb/rustaceanvim", version = vim.version.range("^9"), ft = "rust" },
@@ -31,14 +35,15 @@ vim.pack.add({
   { src = gh("YousefHadder/markdown-plus.nvim"), ft = "markdown" },
   { src = gh("MeanderingProgrammer/render-markdown.nvim"), ft = "markdown" },
   { src = gh("techwizrd/render-latex.nvim"), ft = "markdown" },
-  { src = gh("3rd/image.nvim"), ft = "markdown" },
-  { src = gh("Jacky-Lzx/img-clip.nvim"), ft = "markdown" },
 
   -- Typst
   { src = gh("chomosuke/typst-preview.nvim"), ft = "typst" },
 
   -- Git
   { src = gh("lewis6991/gitsigns.nvim") },
+
+  -- Oil
+  { src = gh("stevearc/oil.nvim") },
 
   -- mini.nvim
   { src = gh("nvim-mini/mini.nvim"), version = "stable" },

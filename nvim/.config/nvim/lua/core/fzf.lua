@@ -86,10 +86,16 @@ require("fzf-lua").setup({
 
   file_ignore_patterns = {
     "^%.git/",
-    "venv/",
-    "__pycache__/",
     "node_modules/",
-    "%.pyc$",
+    "__pycache__/",
+    "venv/", "%.venv/",
+    "%.pyc$", "%.pyo$",
+    "target/",
+    "dist/", "build/",
+    ".cache/", "%.o$", "%.so$",
+    "vendor/", "coverage/",
+    "%.min.js$", "%.min.css$",
+    ".DS_Store",
   },
   keymap = {
     builtin = {

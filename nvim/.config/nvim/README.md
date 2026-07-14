@@ -2,16 +2,22 @@
 
 Minimal and clean Neovim configuration powered by native package management.
 
-## Philosophy (`vim.pack`)
+## Philosophy
 
-- **Native-First**: Built entirely on Neovim 0.12's native package manager (`vim.pack`). No third-party managers (`lazy.nvim`, `packer`).
-- **Minimalist**: Direct control over plugins and setup without bloated abstractions.
+- **Native-First**: Built on Neovim 0.12's native `vim.pack` and `vim.lsp.config`. No third-party managers.
+- **Minimalist**: Direct control over plugins without bloated abstractions.
 
 ## Plugins
 
-- **LSP & Formatting**: `nvim-lspconfig`, `mason.nvim`, `blink.cmp`, `conform.nvim`.
-- **Treesitter & UX**: `nvim-treesitter`, `fzf-lua`, `oil.nvim`, `leap.nvim`, `noice.nvim`, `which-key.nvim`.
-- **Tools**: `jupynvim`, `leetcode.nvim`, `render-markdown.nvim`.
+- **LSP & Completion**: `nvim-lspconfig`, `blink.cmp`, `conform.nvim`
+- **Treesitter**: `nvim-treesitter`
+- **Editor**: `mini.nvim` (indentscope, comment, pairs, files, icons, statusline), `leap.nvim`, `nvim-surround`, `nvim-origami`, `oil.nvim`, `fzf-lua`
+- **UI**: `cyberdream.nvim`, `which-key.nvim`, `gitsigns.nvim` 
+- **Markdown**: `markdown-plus.nvim`, `render-markdown.nvim`, `render-latex.nvim`
+- **Rust**: `rustaceanvim`
+- **Typst**: `typst-preview.nvim`
+- **Notes**: `zk-nvim`
+- **Tools**: `jupynvim`, `image.nvim`, `img-clip.nvim`, `tmux.nvim
 
 ## Keymaps
 
@@ -53,4 +59,3 @@ Minimal and clean Neovim configuration powered by native package management.
 | `K` | LSP Hover doc |
 | `-` | Open parent dir (Oil) |
 | `s` / `S` | Jump forward / backward (Leap) |
-| `zR` / `zM` | Open / close folds (UFO) |

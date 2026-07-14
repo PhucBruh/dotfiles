@@ -3,11 +3,19 @@ require("cyberdream").setup({
     local border = { fg = "#7aa2f7", bg = "NONE" }
     return {
       FloatBorder = border,
+
       MiniFilesBorder = border,
       MiniFilesBorderModified = border,
-      BlinkCmpMenu = { bg = "#141a22" },
-      BlinkCmpMenuBorder = { bg = "#16181a" },
+
+      BlinkCmpMenuBorder = border,
       BlinkCmpMenuSelection = { bg = "#2a2d31", fg = "#7bdff2" },
+      BlinkCmpSignatureHelp = { fg = "#16181a", bg = "#16181a" },
+
+      MiniStatuslineModeNormal = { fg = "#16181a", bg = "#5ef1ff", bold = true },
+      MiniStatuslineModeOther = { fg = "#16181a", bg = "#5ea1ff", bold = true },
+
+      CursorLine = { bg = "#253547" },
+      Visual = { bg = "#3a4b61" },
     }
   end,
 })
@@ -36,10 +44,13 @@ wk.setup({
 
   preset = "helix",
 
+  triggers = {
+    { "<auto>", mode = "nxso" },
+    { "m", mode = "n" },
+  },
+
   win = {
-    border = "none",
-    padding = { 1, 2 },
-    title = false,
+    border = "single",
   },
 
   layout = {
@@ -51,8 +62,8 @@ wk.setup({
   },
 
   icons = {
-    mappings = true,
-    separator = "→",
+    mappings = false,
+    separator = "",
   },
 
   keys = {
@@ -62,10 +73,12 @@ wk.setup({
 })
 
 wk.add({
-  { "<leader>?", group = "Buf keymap", icon = "" },
-  { "<leader>f", group = "Find", icon = "" },
-  { "g", group = "Goto / LSP", icon = "󰌒" },
-  { "z", group = "Folds", icon = "" },
+  { "<leader>?", group = "Buf keymap" },
+  { "<leader>f", group = "Find" },
+  { "<leader>n", group = "Notes" },
+  { "<leader>nf", group = "Navigate" },
+  { "g", group = "Goto / LSP" },
+  { "z", group = "Folds" },
 })
 
 vim.keymap.set("n", "<leader>?", function()
@@ -73,8 +86,3 @@ vim.keymap.set("n", "<leader>?", function()
 end, {
   desc = "Buffer Keymaps",
 })
-
-vim.api.nvim_set_hl(0, "CursorLine", { bg = "#253547" })
-vim.api.nvim_set_hl(0, "Visual", { bg = "#3a4b61" })
-vim.api.nvim_set_hl(0, "MiniStatuslineModeNormal", { fg = "#16181a", bg = "#5ef1ff", bold = true })
-vim.api.nvim_set_hl(0, "MiniStatuslineModeOther", { fg = "#16181a", bg = "#5ea1ff", bold = true })
