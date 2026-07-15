@@ -19,25 +19,25 @@ vim.pack.add({
   { src = gh("rafamadriz/friendly-snippets") },
 
   -- Notes (zk)
-  { src = gh("zk-org/zk-nvim"), ft = "markdown" },
+  { src = gh("zk-org/zk-nvim") },
 
   -- Image
   { src = gh("3rd/image.nvim") },
   { src = gh("Jacky-Lzx/img-clip.nvim") },
 
   -- Rust
-  { src = "https://github.com/mrcjkb/rustaceanvim", version = vim.version.range("^9"), ft = "rust" },
+  { src = gh("mrcjkb/rustaceanvim"), version = vim.version.range("^9") },
 
   -- Notebook
-  { src = gh("sheng-tse/jupynvim"), name = "jupynvim", ft = "ipynb" },
+  { src = gh("sheng-tse/jupynvim"), name = "jupynvim" },
 
   -- Markdown
-  { src = gh("YousefHadder/markdown-plus.nvim"), ft = "markdown" },
-  { src = gh("MeanderingProgrammer/render-markdown.nvim"), ft = "markdown" },
-  { src = gh("techwizrd/render-latex.nvim"), ft = "markdown" },
+  { src = gh("YousefHadder/markdown-plus.nvim") },
+  { src = gh("MeanderingProgrammer/render-markdown.nvim") },
+  { src = gh("techwizrd/render-latex.nvim") },
 
   -- Typst
-  { src = gh("chomosuke/typst-preview.nvim"), ft = "typst" },
+  { src = gh("chomosuke/typst-preview.nvim") },
 
   -- Git
   { src = gh("lewis6991/gitsigns.nvim") },
@@ -49,7 +49,7 @@ vim.pack.add({
   { src = gh("nvim-mini/mini.nvim"), version = "stable" },
 
   -- Editor & UX
-  { src = gh("ibhagwan/fzf-lua"), keys = { "<leader>f", "<leader>?" } },
+  { src = gh("ibhagwan/fzf-lua") },
   { src = cb("andyg/leap.nvim") },
   { src = gh("kylechui/nvim-surround"), version = vim.version.range("4.x") },
   { src = gh("chrisgrieser/nvim-origami") },
@@ -58,4 +58,5 @@ vim.pack.add({
   -- UI
   { src = gh("folke/which-key.nvim") },
   { src = gh("scottmckendry/cyberdream.nvim") },
+  { src = gh("j-hui/fidget.nvim") },
 })

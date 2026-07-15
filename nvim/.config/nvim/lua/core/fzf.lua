@@ -1,77 +1,5 @@
 local map = vim.keymap.set
 
-local function open_float(lines, title)
-  if #lines == 0 then
-    return
-  end
-  local buf = vim.api.nvim_create_buf(false, true)
-  vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
-  vim.bo[buf].modifiable = false
-  local w = math.max(#title - 2, 1) -- minimum = title length
-  for _, l in ipairs(lines) do
-    w = math.max(w, #l)
-  end
-  local width = math.min(w + 2, math.floor(vim.o.columns * 0.95))
-  local height = math.min(#lines, math.floor(vim.o.lines * 0.8))
-  vim.api.nvim_open_win(buf, true, {
-    relative = "editor",
-    style = "minimal",
-    border = "rounded",
-    title = title,
-    title_pos = "center",
-    width = width,
-    height = height,
-    row = math.floor((vim.o.lines - height) / 2),
-    col = math.floor((vim.o.columns - width) / 2),
-  })
-  vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = buf, silent = true })
-  vim.keymap.set("n", "<Esc>", "<cmd>close<cr>", { buffer = buf, silent = true })
-  vim.api.nvim_create_autocmd("WinLeave", {
-    buffer = buf,
-    once = true,
-    callback = function()
-      pcall(vim.api.nvim_buf_delete, buf, { force = true })
-    end,
-  })
-  return buf
-end
-
-local function show_messages()
-  local lines = vim.tbl_filter(function(l)
-    return l ~= ""
-  end, vim.split(vim.fn.execute("messages"), "\n", { plain = true }))
-  if #lines == 0 then
-    return vim.notify("No messages")
-  end
-  local buf = open_float(lines, " Messages ")
-  if buf then
-    vim.cmd("normal! G")
-  end
-end
-
-local function show_tree()
-  local cwd = vim.fn.getcwd()
-  local result = vim
-    .system({
-      "eza",
-      "--tree",
-      "--git-ignore",
-      "--icons=always",
-      "--no-quotes",
-      "--ignore-glob=.git|node_modules|__pycache__|.DS_Store|*.pyc|venv|.venv",
-      "--group-directories-first",
-      "--level=4",
-      cwd,
-    }, { text = true })
-    :wait()
-
-  local lines = vim.split(vim.trim(result.stdout), "\n")
-  if #lines == 0 then
-    return vim.notify("No tree output")
-  end
-  open_float(lines, " " .. vim.fn.fnamemodify(cwd, ":t") .. " ")
-end
-
 require("fzf-lua").setup({
   winopts = {
     border = "single",
@@ -88,13 +16,20 @@ require("fzf-lua").setup({
     "^%.git/",
     "node_modules/",
     "__pycache__/",
-    "venv/", "%.venv/",
-    "%.pyc$", "%.pyo$",
+    "venv/",
+    "%.venv/",
+    "%.pyc$",
+    "%.pyo$",
     "target/",
-    "dist/", "build/",
-    ".cache/", "%.o$", "%.so$",
-    "vendor/", "coverage/",
-    "%.min.js$", "%.min.css$",
+    "dist/",
+    "build/",
+    ".cache/",
+    "%.o$",
+    "%.so$",
+    "vendor/",
+    "coverage/",
+    "%.min.js$",
+    "%.min.css$",
     ".DS_Store",
   },
   keymap = {
@@ -128,6 +63,27 @@ map("n", "<leader>fr", "<cmd>FzfLua lsp_references<cr>",        { desc = "LSP Re
 map("n", "<leader>fw", "<cmd>FzfLua grep_cword<cr>",            { desc = "Grep word" })
 map("n", "<leader>fW", "<cmd>FzfLua grep_cWORD<cr>",            { desc = "Grep C-WORD" })
 map("n", "<leader>fk", "<cmd>FzfLua keymaps<cr>",               { desc = "Keymaps" })
-map("n", "<leader>fn", show_messages,                           { desc = "Messages" })
-map("n", "<leader>ft", show_tree,                               { desc = "File tree" })
+
+local Previewer = require("fzf-lua.previewer.builtin").base:extend()
+function Previewer:new(o, opts, w) Previewer.super.new(self, o, opts, w); return setmetatable(self, Previewer) end
+function Previewer:populate_preview_buf(s)
+  local buf = self:get_tmp_buffer()
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(self.full[s:match("^%[(%d+)%]")] or s, "\n"))
+  vim.bo[buf].filetype = "markdown"
+  self:set_preview_buf(buf)
+end
+
+map("n", "<leader>fn", function()
+  local h = require("fidget.notification").get_history()
+  if #h == 0 then return vim.notify("No notifications") end
+
+  local full, items = {}, {}
+  for i, e in ipairs(h) do
+    items[i] = ("[%d] %s %s"):format(i, e.annote or "", (e.message or ""):gsub("\n", " "))
+    full[tostring(i)] = ("# %s\n\n%s"):format(e.annote or "", e.message or "")
+  end
+
+  Previewer.full = full
+  require("fzf-lua").fzf_exec(items, { previewer = Previewer , winopts = { title = " Notifications " }})
+end, { desc = "Notifications (fidget)" })
 -- stylua: ignore end

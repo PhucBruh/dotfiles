@@ -22,6 +22,11 @@ require("cyberdream").setup({
 
 vim.cmd.colorscheme("cyberdream")
 
+require("fidget").setup({
+  notification = {
+    override_vim_notify = true,
+  },
+})
 require("mini.icons").setup()
 require("mini.statusline").setup()
 
