@@ -80,7 +80,7 @@ wk.setup({
 wk.add({
   { "<leader>?", group = "Buf keymap" },
   { "<leader>f", group = "Find" },
-  { "<leader>n", group = "Notes" },
+  { "<leader>z", group = "Notes" },
   { "<leader>nf", group = "Navigate" },
   { "g", group = "Goto / LSP" },
   { "z", group = "Folds" },

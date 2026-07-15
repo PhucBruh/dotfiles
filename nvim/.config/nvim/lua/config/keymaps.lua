@@ -11,10 +11,6 @@ map("n", "<C-Up>", "<cmd>resize +5<CR>", { desc = "Increase height" })
 map("n", "<C-Down>", "<cmd>resize -5<CR>", { desc = "Decrease height" })
 map("n", "<C-Right>", "<cmd>vertical resize +5<CR>", { desc = "Increase width" })
 
--- Insert mode cursor movement
-map("i", "<C-d>", "<Left>", { desc = "Move cursor left" })
-map("i", "<C-f>", "<Right>", { desc = "Move cursor right" })
-
 -- save / quit
 map("x", "k", "k")
 map("n", "<Leader>w", "<cmd>w<cr>", { desc = "Save" })
@@ -41,3 +37,9 @@ map("n", "<Leader>C", function()
 end, { desc = "Force close buffer" })
 
 map("n", "<C-c>", vim.cmd.nohlsearch, { desc = "Clear search highlight", silent = true })
+
+-- Insert mode cursor movement
+map("i", "<A-h>", "<Left>")
+map("i", "<A-l>", "<Right>")
+map("i", "<A-j>", "<Down>")
+map("i", "<A-k>", "<Up>")
