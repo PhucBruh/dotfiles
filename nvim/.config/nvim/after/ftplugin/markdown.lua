@@ -7,8 +7,9 @@ vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", { buffer = true, desc = "Previou
 require("render-markdown").setup({
   file_types = { "markdown" },
   latex = { enabled = false },
+  preset = "obsidian",
   heading = {
-    icons = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 " },
+    icons = { "󰎤  ", "󰎧  ", "󰎪  ", "󰎭  ", "󰎱  ", "󰎳  " },
     position = "inline",
     width = "block",
     right_pad = 1,
