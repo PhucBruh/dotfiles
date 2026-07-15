@@ -5,10 +5,8 @@ if (( $+commands[eza] )); then
   alias tree='eza --tree --icons'
 fi
 
-
 alias pvenv='[ -f .venv/bin/activate ] && source .venv/bin/activate || source venv/bin/activate'
-alias nv='nvim'
-alias leet='nvim leetcode.nvim'
 
-# herdr workflow helpers — type fw/fp/fpa/fdot in any terminal
-export PATH="$HOME/.config/herdr/scripts:$PATH"
+alias nv='nvim'
+
+alias zksync='cd $ZK_NOTEBOOK_DIR && git add . && git commit -m "update $(date +%Y-%m-%d)" && git push origin main'

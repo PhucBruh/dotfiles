@@ -9,10 +9,6 @@ export NVM_DIR="$HOME/.config/nvm"
 
 export SDKMAN_DIR="$HOME/.sdkman"
 
-# export EDITOR='nvim'
-# export VISUAL='nvim'
-
-export PATH="/opt/nvim-linux-x86_64/bin:$PATH"
 export PATH="$HOME/.opencode/bin:$PATH"
 export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 
@@ -26,7 +22,4 @@ export PATH="$HOME/go/bin:$PATH"
 export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_STYLE_OVERRIDE=qt5ct-style
 
-export NOTES="$HOME/notes"
-export NOTES_PROJECTS="$NOTES/projects"
-export NOTES_JOURNAL="$NOTES/journal"
-export ZK_NOTEBOOK_DIR="$NOTES/zk"
+export ZK_NOTEBOOK_DIR="$HOME/notes/"
