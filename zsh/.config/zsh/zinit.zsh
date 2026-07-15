@@ -5,15 +5,6 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 unalias zi
 
-omz=(
-   tmux
-)
-
-for plugin in $omz; do
-  zinit ice depth=1
-  zinit snippet "OMZP::$plugin"
-done
-
 plugins=(
   zsh-users/zsh-autosuggestions 
   zsh-users/zsh-syntax-highlighting 
