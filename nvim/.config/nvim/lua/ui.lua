@@ -11,9 +11,6 @@ require("cyberdream").setup({
       BlinkCmpMenuSelection = { bg = "#2a2d31", fg = "#7bdff2" },
       BlinkCmpSignatureHelp = { fg = "#16181a", bg = "#16181a" },
 
-      MiniStatuslineModeNormal = { fg = "#16181a", bg = "#5ef1ff", bold = true },
-      MiniStatuslineModeOther = { fg = "#16181a", bg = "#5ea1ff", bold = true },
-
       CursorLine = { bg = "#253547" },
       Visual = { bg = "#3a4b61" },
     }

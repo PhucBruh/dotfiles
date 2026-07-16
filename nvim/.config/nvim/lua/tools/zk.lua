@@ -24,8 +24,6 @@ end, { desc = "Today's Journal" })
 map("n", "<leader>zJ", "<cmd>FzfLua files cwd=" .. notes .. "/journal prompt='Journal❯ '<CR>", { desc = "Journal" })
 map("n","<leader>zp",  "<cmd>FzfLua files cwd=" .. notes .. "/projects prompt='Projects❯ '<CR>",  { desc = "Projects" })
 
-map("n", "<leader>zI", "<cmd>e " .. notes .. "/index.md<CR>", { desc = "zk/index" })
-
 -- create
 map("n", "<leader>zn", "<cmd>ZkNew { dir = 'zk/permanent' }<CR>", { desc = "zk/new permanent" })
 map("n", "<leader>zN", "<cmd>ZkNew { dir = 'zk/literature' }<CR>", { desc = "zk/new literature" })

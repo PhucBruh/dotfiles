@@ -35,9 +35,6 @@ require("blink.cmp").setup({
 
   sources = {
     default = { "lsp", "path", "snippets", "buffer" },
-    per_filetype = {
-      markdown = { "lsp", "path", "buffer" },
-    },
   },
   fuzzy = { implementation = "prefer_rust_with_warning" },
 })
