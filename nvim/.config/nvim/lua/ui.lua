@@ -27,18 +27,7 @@ require("fidget").setup({
 require("mini.icons").setup()
 require("mini.statusline").setup()
 
-require("gitsigns").setup({
-  -- stylua: ignore start
-  signs = {
-    add          = { text = "│" },
-    change       = { text = "│" },
-    delete       = { text = "_" },
-    topdelete    = { text = "‾" },
-    changedelete = { text = "~" },
-    untracked    = { text = "┆" },
-  },
-  -- stylua: ignore end
-})
+
 
 local wk = require("which-key")
 
@@ -77,6 +66,7 @@ wk.setup({
 wk.add({
   { "<leader>?", group = "Buf keymap" },
   { "<leader>f", group = "Find" },
+  { "<leader>g", group = "Git" },
   { "<leader>z", group = "Notes" },
   { "<leader>nf", group = "Navigate" },
   { "g", group = "Goto / LSP" },
