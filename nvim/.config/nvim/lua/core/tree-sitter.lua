@@ -1,45 +1,34 @@
 require("nvim-treesitter").setup({
-  ensure_installed = {
-    "lua",
+  install_dir = vim.fn.stdpath("data") .. "/site",
+})
 
-    -- golang
-    "go",
-    "gomod",
-    "gosum",
+require("nvim-treesitter").install({
+  "lua",
+  "go",
+  "gomod",
+  "gosum",
+  "javascript",
+  "typescript",
+  "tsx",
+  "html",
+  "css",
+  "http",
+  "json",
+  "yaml",
+  "toml",
+  "markdown",
+  "markdown_inline",
+  "bash",
+  "python",
+  "rust",
+  "vim",
+  "vimdoc",
+  "query",
+  "latex",
+})
 
-    -- web
-    "javascript",
-    "typescript",
-    "tsx",
-    "html",
-    "css",
-
-    -- data
-    "http",
-    "json",
-    "yaml",
-    "toml",
-
-    -- markdown
-    "markdown",
-    "markdown_inline",
-
-    "bash",
-    "python",
-    "rust",
-
-    -- vim
-    "vim",
-    "vimdoc",
-
-    -- extra
-    "query",
-    "latex",
-  },
-
-  auto_install = true,
-  sync_install = false,
-
-  highlight = { enable = false },
-  indent = { enable = false },
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function(args)
+    pcall(vim.treesitter.start, args.buf)
+  end,
 })
