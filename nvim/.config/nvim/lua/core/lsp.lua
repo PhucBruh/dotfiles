@@ -17,18 +17,12 @@ local on_attach = function(_, bufnr)
   maps("n", "grt", function()
     fzf.lsp_typedefs({ jump1 = true, ignore_current_line = true })
   end, { buffer = bufnr, desc = "Type Definitions" })
-
-  maps("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "Hover" })
-  maps("n", "gk", vim.lsp.buf.signature_help, { buffer = bufnr, desc = "Signature Help" })
-  maps("i", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature Help" })
-  maps("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr, desc = "Declaration" })
 end
 
 vim.lsp.config("*", { on_attach = on_attach })
 
 -- Lua
 vim.lsp.config("lua_ls", {
-  on_attach = on_attach,
   settings = { Lua = { diagnostics = { globals = { "vim" } } } },
 })
 vim.lsp.enable("lua_ls")
@@ -37,7 +31,6 @@ vim.lsp.enable("lua_ls")
 vim.lsp.config("pyrefly", {
   cmd = { "pyrefly", "lsp" },
   filetypes = { "python" },
-  on_attach = on_attach,
   root_markers = { "pyproject.toml", "uv.lock", ".git" },
 })
 vim.lsp.enable("pyrefly")
@@ -46,7 +39,6 @@ vim.lsp.enable("pyrefly")
 vim.lsp.config("tinymist", {
   cmd = { "tinymist" },
   filetypes = { "typst" },
-  on_attach = on_attach,
   settings = { formatterMode = "typstyle" },
 })
 vim.lsp.enable("tinymist")
