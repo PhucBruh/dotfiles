@@ -51,18 +51,19 @@ map("n", "<leader>fc", function()
 end, { desc = "Neovim Config Files" })
 
 -- stylua: ignore start
+map("n", "<leader><space>", "<cmd>FzfLua<cr>",                  { desc = "FzfLua" })
 map("n", "<leader>fi", "<cmd>FzfLua files<cr>",                 { desc = "Files (fzf-lua)" })
 map("n", "<leader>fj", "<cmd>FzfLua buffers<cr>",               { desc = "Buffers (fzf-lua)" })
 map("n", "<leader>fd", "<cmd>FzfLua diagnostics_document<cr>",  { desc = "Diagnostics Document" })
 map("n", "<leader>fD", "<cmd>FzfLua diagnostics_workspace<cr>", { desc = "Diagnostics Workspace" })
 map("n", "<leader>fs", "<cmd>FzfLua lsp_document_symbols<cr>",  { desc = "Document Symbols" })
+map("n", "<leader>fS", "<cmd>FzfLua lsp_workspace_symbols<cr>", { desc = "Workspace Symbols" })
 map("n", "<leader>fo", "<cmd>FzfLua resume<cr>",                { desc = "Resume fzf" })
+map("n", "<leader>fh", "<cmd>FzfLua oldfiles<cr>",              { desc = "Old files" })
 map("n", "<leader>fg", "<cmd>FzfLua live_grep<cr>",             { desc = "Live grep" })
 map("n", "<leader>fb", "<cmd>FzfLua grep_curbuf<cr>",           { desc = "Grep Current Buffers" })
-map("n", "<leader>fr", "<cmd>FzfLua lsp_references<cr>",        { desc = "LSP References" })
 map("n", "<leader>fw", "<cmd>FzfLua grep_cword<cr>",            { desc = "Grep word" })
-map("n", "<leader>fW", "<cmd>FzfLua grep_cWORD<cr>",            { desc = "Grep C-WORD" })
-map("n", "<leader>fk", "<cmd>FzfLua keymaps<cr>",               { desc = "Keymaps" })
+map("n", "<leader>fW", "<cmd>FzfLua grep_cWORD<cr>",            { desc = "Grep WORD" })
 
 local Previewer = require("fzf-lua.previewer.builtin").base:extend()
 function Previewer:new(o, opts, w) Previewer.super.new(self, o, opts, w); return setmetatable(self, Previewer) end
