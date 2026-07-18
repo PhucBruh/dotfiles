@@ -1,19 +1,24 @@
-require("mini.indentscope").setup()
-require("mini.comment").setup()
-require("leap").setup({})
+local map = vim.keymap.set
+
 require("origami").setup()
 require("nvim-surround").setup()
+require("mini.indentscope").setup()
+require("mini.comment").setup()
 require("mini.pairs").setup()
+require("mini.jump").setup()
 local map_pairs = function(lhs, rhs)
-  vim.keymap.set("i", lhs, rhs, { expr = true, replace_keycodes = false })
+  map("i", lhs, rhs, { expr = true, replace_keycodes = false })
 end
 
 map_pairs("<C-h>", "v:lua.MiniPairs.bs()")
 map_pairs("<C-w>", 'v:lua.MiniPairs.bs("\23")')
 map_pairs("<C-u>", 'v:lua.MiniPairs.bs("\21")')
 
-vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap-forward)")
-vim.keymap.set({ "n", "x", "o" }, "S", "<Plug>(leap-backward)")
+local ai = require("mini.ai")
+
+ai.setup({
+  n_lines = 500,
+})
 
 require("mini.files").setup({
   windows = {
@@ -46,3 +51,11 @@ require("oil").setup({
   },
 })
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+require("leap").setup({})
+require("leap").opts.preview = function(ch0, ch1, ch2)
+  return not (ch1:match("%s") or (ch0:match("%a") and ch1:match("%a") and ch2:match("%a")))
+end
+
+map({ "n", "x", "o" }, "s", "<Plug>(leap-forward)")
+map({ "n", "x", "o" }, "S", "<Plug>(leap-backward)")

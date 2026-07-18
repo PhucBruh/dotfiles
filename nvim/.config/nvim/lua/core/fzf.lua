@@ -52,8 +52,8 @@ end, { desc = "Neovim Config Files" })
 
 -- stylua: ignore start
 map("n", "<leader><space>", "<cmd>FzfLua<cr>",                  { desc = "FzfLua" })
-map("n", "<leader>fi", "<cmd>FzfLua files<cr>",                 { desc = "Files (fzf-lua)" })
-map("n", "<leader>fj", "<cmd>FzfLua buffers<cr>",               { desc = "Buffers (fzf-lua)" })
+map("n", "<leader>fi", "<cmd>FzfLua files<cr>",                 { desc = "Files" })
+map("n", "<leader>fj", "<cmd>FzfLua buffers<cr>",               { desc = "Buffers" })
 map("n", "<leader>fd", "<cmd>FzfLua diagnostics_document<cr>",  { desc = "Diagnostics Document" })
 map("n", "<leader>fD", "<cmd>FzfLua diagnostics_workspace<cr>", { desc = "Diagnostics Workspace" })
 map("n", "<leader>fs", "<cmd>FzfLua lsp_document_symbols<cr>",  { desc = "Document Symbols" })

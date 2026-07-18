@@ -14,10 +14,10 @@ map("n", "<C-Right>", "<cmd>vertical resize +5<CR>", { desc = "Increase width" }
 -- save / quit
 map("x", "k", "k")
 map("n", "<Leader>w", "<cmd>w<cr>", { desc = "Save" })
+map("n", "<Leader>W", "<cmd>silent! update | redraw<cr>", { desc = "Force write" })
 map("n", "<Leader>q", "<cmd>confirm q<cr>", { desc = "Quit Window" })
 map("n", "<Leader>Q", "<cmd>confirm qall<cr>", { desc = "Exit" })
 
-map("n", "<C-S>", "<cmd>silent! update | redraw<cr>", { desc = "Force write" })
 map("n", "<C-Q>", "<cmd>q!<cr>", { desc = "Force quit" })
 
 local function buf_close(force)

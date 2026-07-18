@@ -17,7 +17,7 @@ Minimal and clean Neovim configuration powered by native package management.
 - **Rust**: `rustaceanvim`
 - **Typst**: `typst-preview.nvim`
 - **Notes**: `zk-nvim`
-- **Tools**: `jupynvim`, `image.nvim`, `img-clip.nvim`, `tmux.nvim
+- **Tools**: `jupynvim`, `image.nvim`, `img-clip.nvim`, `tmux.nvim`
 
 ## Keymaps
 

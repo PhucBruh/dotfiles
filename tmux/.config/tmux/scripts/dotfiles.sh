@@ -8,7 +8,8 @@ Tmux $HOME/.config/tmux tmux.conf
 Ghostty $HOME/.config/ghostty config
 Yazi $HOME/.config/yazi yazi.toml
 Starship $HOME/.config --file starship.toml
-Zsh $HOME --file .zshrc
+Zsh $HOME/.config/zsh .zshrc 
+Bat $HOME/.config/bat
 Rofi $HOME/.config/rofi --file config.rasi
 EOF
 )

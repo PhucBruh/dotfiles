@@ -9,7 +9,7 @@ require("render-markdown").setup({
   latex = { enabled = false },
   preset = "obsidian",
   heading = {
-    icons = { "󰎤  ", "󰎧  ", "󰎪  ", "󰎭  ", "󰎱  ", "󰎳  " },
+    icons = { "󰼏  ", "󰼐  ", "󰼑  ", "󰼒  ", "󰼓  ", "󰼔  ", "󰼕  " },
     position = "inline",
     width = "block",
     right_pad = 1,
@@ -20,6 +20,10 @@ require("render-markdown").setup({
   checkbox = {
     unchecked = { icon = "󰄱 " },
     checked = { icon = "󰱒 " },
+  },
+  code = {
+    width = "block",
+    language_pad = 1,
   },
 })
 require("render_latex").setup({})

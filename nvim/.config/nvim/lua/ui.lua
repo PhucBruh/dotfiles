@@ -1,6 +1,16 @@
 require("cyberdream").setup({
-  overrides = function()
-    local border = { fg = "#7aa2f7", bg = "NONE" }
+  italic_comments = true,
+  colors = {
+    dark = {
+      bg = "#16161E",
+      bg_alt = "#1F2335",
+      bg_highlight = "#292E42",
+      fg = "#C0CAF5",
+      blue = "#7AA2F7",
+    },
+  },
+  overrides = function(c)
+    local border = { fg = c.blue }
     return {
       FloatBorder = border,
 
@@ -8,11 +18,6 @@ require("cyberdream").setup({
       MiniFilesBorderModified = border,
 
       BlinkCmpMenuBorder = border,
-      BlinkCmpMenuSelection = { bg = "#2a2d31", fg = "#7bdff2" },
-      BlinkCmpSignatureHelp = { fg = "#16181a", bg = "#16181a" },
-
-      CursorLine = { bg = "#253547" },
-      Visual = { bg = "#3a4b61" },
     }
   end,
 })
@@ -26,8 +31,6 @@ require("fidget").setup({
 })
 require("mini.icons").setup()
 require("mini.statusline").setup()
-
-
 
 local wk = require("which-key")
 

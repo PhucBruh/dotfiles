@@ -8,12 +8,13 @@
   conflictStyle = zdiff3
 
 [delta]
-  syntax-theme = tokyonight_storm
-  side-by-side = true
-  navigate = true
+  features = cyberdream
 
-  plus-style = syntax "#1f3b2b"
-  minus-style = syntax "#3b1f2b"
+  plus-style  = syntax "#1e2a22"
+  minus-style = syntax "#2a1e1e"
 
-  file-style = "#7aa2f7" bold
-  hunk-header-style = "#bb9af7"
+  plus-emph-style  = syntax bold "#2a3e2e"
+  minus-emph-style = syntax bold "#3e2a2a"
+
+[delta "decorations"]
+  syntax-theme = cyberdream

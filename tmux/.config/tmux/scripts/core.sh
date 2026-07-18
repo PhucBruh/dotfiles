@@ -24,7 +24,6 @@ tl::fzf() {
     command -v fzf >/dev/null || { echo "fzf not found" >&2; return 1; }
     fzf --layout reverse --ansi --no-mouse \
         --border "$TL_BORDER" --gutter "$TL_GUTTER" \
-        --color="border:$TL_BORDER_COLOR,label:$TL_LABEL_COLOR" \
         --info "$TL_INFO" --pointer "$TL_POINTER" \
         --preview-window "$TL_PREVIEW" --preview-label '{1}' \
         --tmux "$TL_POPUP" "$@"
@@ -34,7 +33,6 @@ tl::prompt() {
     local message="$1" default="${2:-}"
     fzf --layout reverse --print-query --no-mouse \
         --border "$TL_BORDER" --gutter "$TL_GUTTER" \
-        --color="border:$TL_BORDER_COLOR,label:$TL_LABEL_COLOR" \
         --pointer "$TL_POINTER" \
         --prompt "$message > " --query "$default" </dev/null | head -n1
 }
@@ -43,7 +41,6 @@ tl::confirm() {
     local message="$1"
     printf 'No\nYes' | fzf --layout reverse --no-mouse \
         --border "$TL_BORDER" --gutter "$TL_GUTTER" \
-        --color="border:$TL_BORDER_COLOR,label:$TL_LABEL_COLOR" \
         --pointer "$TL_POINTER" \
         --border-label " $message " --prompt '> '
 }
@@ -103,19 +100,21 @@ tl::switch_session() { tl::switch_window "$1"; }
 
 tl::kill_window() {
     local target="$1"
-    if [ "$(tl::current_window)" = "$target" ]; then
-        tmux next-window -t "${target%%:*}" 2>/dev/null
+    local session="${target%%:*}"
+    local win_count
+    win_count="$(tmux list-windows -t "$session" 2>/dev/null | wc -l)"
+    if [ "$target" = "$(tl::current_window)" ] && [ "$win_count" -le 1 ]; then
+        tl::kill_session "$session"
+        return
     fi
     tmux kill-window -t "$target"
 }
 
 tl::kill_session() {
     local target="$1"
-    if [ "$(tl::current_session)" = "$target" ]; then
-        local fallback
-        fallback="$(tmux list-sessions -F '#{session_name}' | grep -v "^${target}$" | head -n1)"
-        [ -n "$fallback" ] && tmux switch-client -t "$fallback" 2>/dev/null
-    fi
+    local fallback
+    fallback="$(tmux list-sessions -F '#{session_name}' | grep -v "^${target}$" | head -n1)"
+    [ -n "$fallback" ] && tmux switch-client -t "$fallback" 2>/dev/null
     tmux kill-session -t "$target"
 }
 

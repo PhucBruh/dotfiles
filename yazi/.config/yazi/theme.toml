@@ -1,3 +1,6 @@
+[indicator]
+padding = { open = "▐", close = "▌" }
+
 #:schema https://yazi-rs.github.io/schemas/theme.json
 
 [mgr]
@@ -5,30 +8,25 @@
 # tmTheme files can be found here: https://github.com/scottmckendry/cyberdream.nvim/tree/main/extras/textmate 
 syntect_theme = "../bat/themes/cyberdream.tmTheme"
 
+border_style = { fg = "#292E42" }
 cwd = { fg = "#5ef1ff" }
 find_keyword = { bold = true, fg = "#5eff6c" }
-find_position = { fg = "#ffffff" }
+find_position = { fg = "#C0CAF5" }
 marker_copied = { bg = "#f1ff5e", fg = "#f1ff5e" }
 marker_cut = { bg = "#ff6e5e", fg = "#ff6e5e" }
-marker_selected = { bg = "#3c4048", fg = "#5eff6c" }
-count_selected = { bg = "#5eff6c", fg = "#16181a" }
-count_copied = { bg = "#f1ff5e", fg = "#16181a" }
-count_cut = { bg = "#ff6e5e", fg = "#16181a" }
-border_style = { fg = "#7aa2f7" }
+marker_selected = { bg = "#292E42", fg = "#5eff6c" }
+count_selected = { bg = "#5eff6c", fg = "#16161E" }
+count_copied = { bg = "#f1ff5e", fg = "#16161E" }
+count_cut = { bg = "#ff6e5e", fg = "#16161E" }
 
 [cmp]
 active = { bg = "#7b8496", fg = "#bd5eff" }
-border = { fg = "#5ea1ff" }
-inactive = { fg = "#ffffff" }
+border = { fg = "#7AA2F7" }
+inactive = { fg = "#C0CAF5" }
 
 [tabs]
-active = { bg = "#5ea1ff", fg = "#16181a" }
-inactive = { bg = "#3c4048", fg = "#ffffff" }
-
-[indicator]
-padding = { open = "▐", close = "▌" }
-current = { fg = "#ffffff", bg = "#253547", bold = true }
-parent = { fg = "#ffffff", bg = "#253547", bold = true }
+active = { bg = "#7AA2F7", fg = "#16161E" }
+inactive = { bg = "#292E42", fg = "#C0CAF5" }
 
 [filetype]
 rules = [
@@ -47,51 +45,51 @@ rules = [
     { fg = "#5eff6c", mime = "application/pdf" },
     { fg = "#5eff6c", mime = "application/rtf" },
     { fg = "#5eff6c", mime = "application/vnd.*" },
-    { bold = true, fg = "#5ea1ff", mime = "inode/directory" },
-    { fg = "#ffffff", mime = "*" }
+    { bold = true, fg = "#7AA2F7", mime = "inode/directory" },
+    { fg = "#C0CAF5", mime = "*" }
 ]
 
 [help]
-desc = { fg = "#ffffff" }
-footer = { fg = "#ffffff" }
-hovered = { bg = "#7b8496", fg = "#ffffff" }
+desc = { fg = "#C0CAF5" }
+footer = { fg = "#C0CAF5" }
+hovered = { bg = "#7b8496", fg = "#C0CAF5" }
 on = { fg = "#bd5eff" }
 run = { fg = "#5ef1ff" }
 
 [input]
-border = { fg = "#5ea1ff" }
+border = { fg = "#7AA2F7" }
 selected = { bg = "#7b8496" }
-title = { fg = "#ffffff" }
-value = { fg = "#ffffff" }
+title = { fg = "#C0CAF5" }
+value = { fg = "#C0CAF5" }
 
 [pick]
 active = { fg = "#bd5eff" }
-border = { fg = "#5ea1ff" }
-inactive = { fg = "#ffffff" }
+border = { fg = "#7AA2F7" }
+inactive = { fg = "#C0CAF5" }
 
 [mode]
-normal_main = { bg = "#5ea1ff", bold = true, fg = "#16181a" }
-select_main = { bg = "#5eff6c", bold = true, fg = "#16181a" }
-unset_main = { bg = "#ff5ef1", bold = true, fg = "#16181a" }
+normal_main = { bg = "#7AA2F7", bold = true, fg = "#16161E" }
+select_main = { bg = "#5eff6c", bold = true, fg = "#16161E" }
+unset_main = { bg = "#ff5ef1", bold = true, fg = "#16161E" }
 
 [status]
 perm_sep = { fg = "#5ef1ff" }
-perm_type = { fg = "#5ea1ff" }
+perm_type = { fg = "#7AA2F7" }
 perm_read = { fg = "#f1ff5e" }
 perm_write = { fg = "#ff6e5e" }
 perm_exec = { fg = "#5eff6c" }
-progress_error = { bg = "#16181a", fg = "#ff6e5e" }
-progress_label = { bg = "#16181a", fg = "#ffffff" }
-progress_normal = { bg = "#16181a", fg = "#ffffff" }
+progress_error = { bg = "#16161E", fg = "#ff6e5e" }
+progress_label = { bg = "#16161E", fg = "#C0CAF5" }
+progress_normal = { bg = "#16161E", fg = "#C0CAF5" }
 
 [tasks]
-border = { fg = "#5ea1ff" }
-hovered = { bg = "#7b8496", fg = "#ffffff" }
-title = { fg = "#ffffff" }
+border = { fg = "#7AA2F7" }
+hovered = { bg = "#7b8496", fg = "#C0CAF5" }
+title = { fg = "#C0CAF5" }
 
 [which]
 cand = { fg = "#5ef1ff" }
-desc = { fg = "#ffffff" }
-mask = { bg = "#3c4048" }
+desc = { fg = "#C0CAF5" }
+mask = { bg = "#292E42" }
 rest = { fg = "#ff5ef1" }
 separator_style = { fg = "#7b8496" }

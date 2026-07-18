@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+git:
+  pagers:
+    - pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+      colorArg: always
+gui:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never --line-numbers
+  border: single
+  theme:
+      activeBorderColor:
+          - "#5ef1ff"
+      inactiveBorderColor:
+          - "#7b8496"
+      searchingActiveBorderColor:
+          - "#ff5ef1"
+      optionsTextColor:
+          - "#292E42"
+      selectedLineBgColor:
+          - "#292E42"
+      cherryPickedCommitBgColor:
+          - "#292E42"
+      cherryPickedCommitFgColor:
+          - "#ff5ea0"
+      unstagedChangesColor:
+          - "#ffbd5e"
+      defaultFgColor:
+          - "#C0CAF5"

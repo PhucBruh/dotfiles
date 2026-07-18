@@ -38,7 +38,7 @@ line="$("$SELF" --items | tl::fzf \
     --border-label ' Window ' \
     --prompt '> ' \
     --header "<C-r>:rename  <C-k>:kill" \
-    --with-nth "2" \
+    --delimiter '\t' --with-nth "2" \
     --preview "'$SELF' --preview {1}" \
     --bind "ctrl-k:execute('$SELF' --kill {1})+reload('$SELF' --items)" \
     --bind "ctrl-r:execute('$SELF' --rename {1})+reload('$SELF' --items)")"

@@ -1,27 +1,27 @@
-local PACK_NAME = "jupynvim"
-
-local function setup()
-  require("jupynvim").setup({
-    log_level = "info",
-    image_renderer = "placeholder",
-  })
-end
-
-local function build(plugin_dir)
-  local install = loadfile(plugin_dir .. "/lua/jupynvim/install.lua")()
-  if install then
-    install.run({ dir = plugin_dir })
-  end
-end
-
-local pack_dir = vim.fn.stdpath("data") .. "/site/pack/core/opt/" .. PACK_NAME
-local bin = pack_dir .. "/core/target/release/jupynvim-core"
-
-if vim.fn.filereadable(bin) == 1 then
-  setup()
-else
-  build(pack_dir)
-  if vim.fn.filereadable(bin) == 1 then
-    setup()
-  end
-end
+-- local PACK_NAME = "jupynvim"
+--
+-- local function setup()
+--   require("jupynvim").setup({
+--     log_level = "info",
+--     image_renderer = "placeholder",
+--   })
+-- end
+--
+-- local function build(plugin_dir)
+--   local install = loadfile(plugin_dir .. "/lua/jupynvim/install.lua")()
+--   if install then
+--     install.run({ dir = plugin_dir })
+--   end
+-- end
+--
+-- local pack_dir = vim.fn.stdpath("data") .. "/site/pack/core/opt/" .. PACK_NAME
+-- local bin = pack_dir .. "/core/target/release/jupynvim-core"
+--
+-- if vim.fn.filereadable(bin) == 1 then
+--   setup()
+-- else
+--   build(pack_dir)
+--   if vim.fn.filereadable(bin) == 1 then
+--     setup()
+--   end
+-- end
