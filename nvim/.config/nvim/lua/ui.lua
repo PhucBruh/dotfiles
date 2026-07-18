@@ -22,6 +22,16 @@ require("cyberdream").setup({
       BlinkCmpMenuBorder = border,
 
       CursorLineNr = { fg = c.cyan },
+
+      MarkviewYmlIcon = { fg = c.orange },
+      MarkviewYmlKey = { fg = c.blue, bold = true },
+      MarkviewYmlTitle = { fg = c.cyan, bold = true },
+      MarkviewYmlScalar = { fg = c.fg },
+      MarkviewYmlDate = { fg = c.green, bold = true },
+      MarkviewYmlBoolean = { fg = c.fg },
+      MarkviewYmlNumber = { fg = c.fg },
+      MarkviewYmlList = { fg = c.magenta },
+      MarkviewYmlEmpty = { fg = c.fg },
     }
   end,
 })
