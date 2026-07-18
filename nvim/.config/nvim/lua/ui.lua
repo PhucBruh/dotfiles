@@ -20,6 +20,8 @@ require("cyberdream").setup({
       MiniFilesBorderModified = border,
 
       BlinkCmpMenuBorder = border,
+
+      CursorLineNr = { fg = c.cyan },
     }
   end,
 })
@@ -32,7 +34,6 @@ require("fidget").setup({
   },
 })
 require("mini.icons").setup()
-require("mini.statusline").setup()
 
 local wk = require("which-key")
 
