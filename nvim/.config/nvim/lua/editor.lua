@@ -60,3 +60,13 @@ end
 map({ "n", "x", "o" }, "s", "<Plug>(leap-forward)")
 map({ "n", "x", "o" }, "S", "<Plug>(leap-backward)")
 
+require("mini.diff").setup({
+  view = {
+    style = "sign",
+    signs = { add = "│", change = "│", delete = "│" },
+  },
+})
+
+map("n", "go", function()
+  require("mini.diff").toggle_overlay(0)
+end, { desc = "Toggle diff overlay" })

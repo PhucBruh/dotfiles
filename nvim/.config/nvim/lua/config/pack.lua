@@ -39,9 +39,6 @@ vim.pack.add({
   -- Typst
   { src = gh("chomosuke/typst-preview.nvim") },
 
-  -- Git
-  { src = gh("lewis6991/gitsigns.nvim") },
-
   -- Oil
   { src = gh("stevearc/oil.nvim") },
 
