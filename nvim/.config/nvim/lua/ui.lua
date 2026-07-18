@@ -2,11 +2,13 @@ require("cyberdream").setup({
   italic_comments = true,
   colors = {
     dark = {
-      bg = "#16161E",
-      bg_alt = "#1F2335",
-      bg_highlight = "#292E42",
-      fg = "#C0CAF5",
-      blue = "#7AA2F7",
+      bg = "#16161e",
+      bg_alt = "#1f2335",
+      bg_highlight = "#292e42",
+      fg = "#c0caf5",
+      blue = "#89b4fa",
+      cyan = "#7dcfff",
+      grey = "#565f89",
     },
   },
   overrides = function(c)

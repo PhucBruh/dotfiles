@@ -8,29 +8,29 @@ padding = { open = "▐", close = "▌" }
 # tmTheme files can be found here: https://github.com/scottmckendry/cyberdream.nvim/tree/main/extras/textmate 
 syntect_theme = "../bat/themes/cyberdream.tmTheme"
 
-border_style = { fg = "#292E42" }
-cwd = { fg = "#5ef1ff" }
+border_style = { fg = "#292e42" }
+cwd = { fg = "#7dcfff" }
 find_keyword = { bold = true, fg = "#5eff6c" }
-find_position = { fg = "#C0CAF5" }
+find_position = { fg = "#c0caf5" }
 marker_copied = { bg = "#f1ff5e", fg = "#f1ff5e" }
 marker_cut = { bg = "#ff6e5e", fg = "#ff6e5e" }
-marker_selected = { bg = "#292E42", fg = "#5eff6c" }
-count_selected = { bg = "#5eff6c", fg = "#16161E" }
-count_copied = { bg = "#f1ff5e", fg = "#16161E" }
-count_cut = { bg = "#ff6e5e", fg = "#16161E" }
+marker_selected = { bg = "#292e42", fg = "#5eff6c" }
+count_selected = { bg = "#5eff6c", fg = "#16161e" }
+count_copied = { bg = "#f1ff5e", fg = "#16161e" }
+count_cut = { bg = "#ff6e5e", fg = "#16161e" }
 
 [cmp]
-active = { bg = "#7b8496", fg = "#bd5eff" }
-border = { fg = "#7AA2F7" }
-inactive = { fg = "#C0CAF5" }
+active = { bg = "#565f89", fg = "#bd5eff" }
+border = { fg = "#89b4fa" }
+inactive = { fg = "#c0caf5" }
 
 [tabs]
-active = { bg = "#7AA2F7", fg = "#16161E" }
-inactive = { bg = "#292E42", fg = "#C0CAF5" }
+active = { bg = "#89b4fa", fg = "#16161e" }
+inactive = { bg = "#292e42", fg = "#c0caf5" }
 
 [filetype]
 rules = [
-    { fg = "#5ef1ff", mime = "image/*" },
+    { fg = "#7dcfff", mime = "image/*" },
     { fg = "#f1ff5e", mime = "video/*" },
     { fg = "#f1ff5e", mime = "audio/*" },
     { fg = "#bd5eff", mime = "application/zip" },
@@ -45,51 +45,51 @@ rules = [
     { fg = "#5eff6c", mime = "application/pdf" },
     { fg = "#5eff6c", mime = "application/rtf" },
     { fg = "#5eff6c", mime = "application/vnd.*" },
-    { bold = true, fg = "#7AA2F7", mime = "inode/directory" },
-    { fg = "#C0CAF5", mime = "*" }
+    { bold = true, fg = "#89b4fa", mime = "inode/directory" },
+    { fg = "#c0caf5", mime = "*" }
 ]
 
 [help]
-desc = { fg = "#C0CAF5" }
-footer = { fg = "#C0CAF5" }
-hovered = { bg = "#7b8496", fg = "#C0CAF5" }
+desc = { fg = "#c0caf5" }
+footer = { fg = "#c0caf5" }
+hovered = { bg = "#565f89", fg = "#c0caf5" }
 on = { fg = "#bd5eff" }
-run = { fg = "#5ef1ff" }
+run = { fg = "#7dcfff" }
 
 [input]
-border = { fg = "#7AA2F7" }
-selected = { bg = "#7b8496" }
-title = { fg = "#C0CAF5" }
-value = { fg = "#C0CAF5" }
+border = { fg = "#89b4fa" }
+selected = { bg = "#565f89" }
+title = { fg = "#c0caf5" }
+value = { fg = "#c0caf5" }
 
 [pick]
 active = { fg = "#bd5eff" }
-border = { fg = "#7AA2F7" }
-inactive = { fg = "#C0CAF5" }
+border = { fg = "#89b4fa" }
+inactive = { fg = "#c0caf5" }
 
 [mode]
-normal_main = { bg = "#7AA2F7", bold = true, fg = "#16161E" }
-select_main = { bg = "#5eff6c", bold = true, fg = "#16161E" }
-unset_main = { bg = "#ff5ef1", bold = true, fg = "#16161E" }
+normal_main = { bg = "#89b4fa", bold = true, fg = "#16161e" }
+select_main = { bg = "#5eff6c", bold = true, fg = "#16161e" }
+unset_main = { bg = "#ff5ef1", bold = true, fg = "#16161e" }
 
 [status]
-perm_sep = { fg = "#5ef1ff" }
-perm_type = { fg = "#7AA2F7" }
+perm_sep = { fg = "#7dcfff" }
+perm_type = { fg = "#89b4fa" }
 perm_read = { fg = "#f1ff5e" }
 perm_write = { fg = "#ff6e5e" }
 perm_exec = { fg = "#5eff6c" }
-progress_error = { bg = "#16161E", fg = "#ff6e5e" }
-progress_label = { bg = "#16161E", fg = "#C0CAF5" }
-progress_normal = { bg = "#16161E", fg = "#C0CAF5" }
+progress_error = { bg = "#16161e", fg = "#ff6e5e" }
+progress_label = { bg = "#16161e", fg = "#c0caf5" }
+progress_normal = { bg = "#16161e", fg = "#c0caf5" }
 
 [tasks]
-border = { fg = "#7AA2F7" }
-hovered = { bg = "#7b8496", fg = "#C0CAF5" }
-title = { fg = "#C0CAF5" }
+border = { fg = "#89b4fa" }
+hovered = { bg = "#565f89", fg = "#c0caf5" }
+title = { fg = "#c0caf5" }
 
 [which]
-cand = { fg = "#5ef1ff" }
-desc = { fg = "#C0CAF5" }
-mask = { bg = "#292E42" }
+cand = { fg = "#7dcfff" }
+desc = { fg = "#c0caf5" }
+mask = { bg = "#292e42" }
 rest = { fg = "#ff5ef1" }
-separator_style = { fg = "#7b8496" }
+separator_style = { fg = "#565f89" }

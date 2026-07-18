@@ -1,26 +1,26 @@
 [delta "cyberdream"]
-	blame-palette = "#16161E #1e2234 #313855 #444d75 #576295"
-	commit-decoration-style = "#7b8496" bold box ul
+	blame-palette = "#16161e #1e2234 #313855 #444d75 #576295"
+	commit-decoration-style = "#565f89" bold box ul
 	dark = true
-	file-decoration-style = "#7b8496"
-	file-style = "#C0CAF5"
-	hunk-header-decoration-style = "#7b8496" box ul
+	file-decoration-style = "#565f89"
+	file-style = "#c0caf5"
+	hunk-header-decoration-style = "#565f89" box ul
 	hunk-header-file-style = bold
-	hunk-header-line-number-style = bold "#8892a9"
+	hunk-header-line-number-style = bold "#6b749e"
 	hunk-header-style = file line-number syntax
-	line-numbers-left-style = "#7b8496"
+	line-numbers-left-style = "#565f89"
 	line-numbers-minus-style = bold "#ff6e5e"
 	line-numbers-plus-style = bold "#5eff6c"
-	line-numbers-right-style = "#7b8496"
-	line-numbers-zero-style = "#7b8496"
+	line-numbers-right-style = "#565f89"
+	line-numbers-zero-style = "#565f89"
 	minus-emph-style = bold syntax "#733937"
 	minus-style = syntax "#44272a"
 	plus-emph-style = bold syntax "#32733d"
 	plus-style = syntax "#24442d"
 	map-styles = \
 	  bold purple => syntax "#583278", \
-	  bold blue   => syntax "#3e4e74", \
-	  bold cyan   => syntax "#326d78", \
+	  bold blue   => syntax "#445576", \
+	  bold cyan   => syntax "#3f6078", \
 	  bold yellow => syntax "#6d7337"
 	# Should match the name of the bat theme
 	syntax-theme = cyberdream
