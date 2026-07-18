@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# apps/yazi.sh [directory]
+# yazi.sh — open yazi file manager (prefix f → f/F)
 #
-# Opens yazi in a managed window. Auto-closes on focus-out.
-# Pass a directory argument (e.g. ~) or defaults to current pane's cwd.
+# Usage: yazi.sh [directory]
+
 set -uo pipefail
 source "$(cd "$(dirname "$0")" && pwd)/core.sh"
 

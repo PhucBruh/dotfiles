@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# layouts.sh — tmuxifier layout picker (prefix f l)
+# layouts.sh — tmuxifier layout picker (prefix f → l)
 #
-# enter:load  ctrl-w:load with project dir
+# <C-w>:load with project dir
+
 set -uo pipefail
 source "$(cd "$(dirname "$0")" && pwd)/core.sh"
 
@@ -27,7 +28,7 @@ pick_project_dir() {
         done \
         | sed "s|^$HOME/||" \
         | sort -u \
-        | tl::fzf --border-label ' Project ' --prompt "Project dir > "
+        | tl::fzf --border-label ' Project ' --prompt '> '
     )"
     [ -z "$dir" ] && return 1
     case "$dir" in
@@ -38,9 +39,9 @@ pick_project_dir() {
 
 while true; do
     result="$("$TMUXIFIER_BIN" list-sessions 2>/dev/null | tl::fzf \
-        --border-label ' Layouts ' \
-        --prompt "Layouts > " \
-        --header "enter:load  ctrl-w:load with project dir" \
+        --border-label ' Layout ' \
+        --prompt '> ' \
+        --header "<C-w>:load dir" \
         --expect "enter,ctrl-w" \
         --preview "'$SELF' --preview {1}")"
 
