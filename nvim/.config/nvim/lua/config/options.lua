@@ -15,7 +15,8 @@ opt.foldcolumn = "1"
 opt.termguicolors = true
 opt.laststatus = 3
 
-vim.opt.statuscolumn = "%s%=%4l %C  "
+opt.statuscolumn = "%s%=%4l %C  "
+opt.statusline = "%f %m %= %y │ %l:%c "
 
 opt.fillchars = {
   eob = " ",

@@ -59,3 +59,4 @@ end
 
 map({ "n", "x", "o" }, "s", "<Plug>(leap-forward)")
 map({ "n", "x", "o" }, "S", "<Plug>(leap-backward)")
+

@@ -1,8 +1,6 @@
 require("gitsigns").setup({
   -- stylua: ignore start
-  signs = {
-    add          = { text = "│" },
-    change       = { text = "│" },
+    style = "sign",
     delete       = { text = "_" },
     topdelete    = { text = "‾" },
     changedelete = { text = "~" },
