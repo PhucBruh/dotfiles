@@ -32,6 +32,11 @@ require("fzf-lua").setup({
     "%.min.css$",
     ".DS_Store",
   },
+  previewers = {
+    builtin = {
+      render_markdown = { enabled = false },
+    },
+  },
   keymap = {
     builtin = {
       ["<C-d>"] = "preview-page-down",
@@ -51,19 +56,19 @@ map("n", "<leader>fc", function()
 end, { desc = "Neovim Config Files" })
 
 -- stylua: ignore start
-map("n", "<leader><space>", "<cmd>FzfLua<cr>",                  { desc = "FzfLua" })
+map("n", "<leader><space>", "<cmd>FzfLua<cr>",                  { desc = "Options" })
 map("n", "<leader>fi", "<cmd>FzfLua files<cr>",                 { desc = "Files" })
 map("n", "<leader>fj", "<cmd>FzfLua buffers<cr>",               { desc = "Buffers" })
 map("n", "<leader>fd", "<cmd>FzfLua diagnostics_document<cr>",  { desc = "Diagnostics Document" })
 map("n", "<leader>fD", "<cmd>FzfLua diagnostics_workspace<cr>", { desc = "Diagnostics Workspace" })
 map("n", "<leader>fs", "<cmd>FzfLua lsp_document_symbols<cr>",  { desc = "Document Symbols" })
 map("n", "<leader>fS", "<cmd>FzfLua lsp_workspace_symbols<cr>", { desc = "Workspace Symbols" })
-map("n", "<leader>fr", "<cmd>FzfLua resume<cr>",                { desc = "Resume fzf" })
+map("n", "<leader>fr", "<cmd>FzfLua resume<cr>",                { desc = "Resume" })
 map("n", "<leader>fo", "<cmd>FzfLua oldfiles<cr>",              { desc = "Old files" })
 map("n", "<leader>fg", "<cmd>FzfLua live_grep<cr>",             { desc = "Live grep" })
-map("n", "<leader>fb", "<cmd>FzfLua grep_curbuf<cr>",           { desc = "Grep Current Buffers" })
-map("n", "<leader>fw", "<cmd>FzfLua grep_cword<cr>",            { desc = "Grep word" })
-map("n", "<leader>fW", "<cmd>FzfLua grep_cWORD<cr>",            { desc = "Grep WORD" })
+map("n", "<leader>fb", "<cmd>FzfLua grep_curbuf<cr>",           { desc = "G-current buffers" })
+map("n", "<leader>fw", "<cmd>FzfLua grep_cword<cr>",            { desc = "G-word" })
+map("n", "<leader>fW", "<cmd>FzfLua grep_cWORD<cr>",            { desc = "G-WORD" })
 
 local Previewer = require("fzf-lua.previewer.builtin").base:extend()
 function Previewer:new(o, opts, w) Previewer.super.new(self, o, opts, w); return setmetatable(self, Previewer) end

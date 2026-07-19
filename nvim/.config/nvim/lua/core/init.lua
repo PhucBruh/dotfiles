@@ -1,4 +1,5 @@
-require("core.lsp")
-require("core.tree-sitter")
-require("core.blink")
 require("core.fzf")
+require("core.tree-sitter")
+require("core.lsp")
+require("core.blink")
+require("core.dap")

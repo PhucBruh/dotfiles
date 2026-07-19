@@ -4,8 +4,12 @@ local cb = function(x) return 'https://codeberg.org/' .. x end
 -- stylua: ignore end
 
 vim.pack.add({
-  -- LSP Native
+  -- LSP
   { src = gh("neovim/nvim-lspconfig") },
+
+  -- Dap
+  { src = gh("mfussenegger/nvim-dap") },
+  { src = gh("igorlfs/nvim-dap-view"), version = vim.version.range("1.*") },
 
   -- Treesitter
   { src = gh("nvim-treesitter/nvim-treesitter") },
@@ -50,6 +54,7 @@ vim.pack.add({
   { src = cb("andyg/leap.nvim") },
   { src = gh("kylechui/nvim-surround"), version = vim.version.range("4.x") },
   { src = gh("chrisgrieser/nvim-origami") },
+  { src = gh("christoomey/vim-tmux-navigator") },
 
   -- UI
   { src = gh("folke/which-key.nvim") },
