@@ -1,3 +1,6 @@
+vim.wo.conceallevel = 3
+vim.wo.concealcursor = "nc"
+
 local map = function(mode, lhs, rhs, desc)
   vim.keymap.set(mode, lhs, rhs, { buffer = true, desc = desc })
 end

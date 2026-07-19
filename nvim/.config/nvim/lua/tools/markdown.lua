@@ -165,4 +165,34 @@ local function parse_yaml(ctx)
   return marks
 end
 
-return { parse = parse_yaml }
+require("markdown-plus").setup({})
+
+require("render-markdown").setup({
+  file_types = { "markdown" },
+  render_modes = { "n", "v", "i", "c" },
+  latex = { enabled = false },
+  preset = "obsidian",
+  heading = {
+    icons = { "󰼏  ", "󰼐  ", "󰼑  ", "󰼒  ", "󰼓  ", "󰼔  ", "󰼕  " },
+    position = "inline",
+    width = "normal",
+    right_pad = 1,
+    left_pad = 1,
+    sign = false,
+  },
+  bullet = { icons = { "•" } },
+  checkbox = {
+    unchecked = { icon = "󰄱 " },
+    checked = { icon = "󰱒 " },
+  },
+  code = {
+    width = "block",
+    language_pad = 1,
+  },
+  yaml = { enabled = false },
+  custom_handlers = {
+    yaml = { parse = parse_yaml, extends = false },
+  },
+})
+
+require("render_latex").setup({})
