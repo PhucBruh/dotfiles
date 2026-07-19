@@ -5,7 +5,6 @@ require("nvim-surround").setup()
 require("mini.indentscope").setup()
 require("mini.comment").setup()
 require("mini.pairs").setup()
-require("mini.jump").setup()
 local map_pairs = function(lhs, rhs)
   map("i", lhs, rhs, { expr = true, replace_keycodes = false })
 end
@@ -70,3 +69,18 @@ require("mini.diff").setup({
 map("n", "go", function()
   require("mini.diff").toggle_overlay(0)
 end, { desc = "Toggle diff overlay" })
+
+require("mini.jump").setup()
+local jump_stop = function()
+  if not MiniJump.state.jumping then
+    return "<Esc>"
+  end
+  MiniJump.stop_jumping()
+end
+local opts = { expr = true, desc = "Stop jumping" }
+map({ "n", "x", "o" }, "<C-c>", jump_stop, opts)
+
+map("n", "<M-h>", "<cmd>TmuxNavigateLeft<CR>")
+map("n", "<M-j>", "<cmd>TmuxNavigateDown<CR>")
+map("n", "<M-k>", "<cmd>TmuxNavigateUp<CR>")
+map("n", "<M-l>", "<cmd>TmuxNavigateRight<CR>")

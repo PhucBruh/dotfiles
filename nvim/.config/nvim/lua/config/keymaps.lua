@@ -39,16 +39,10 @@ end, { desc = "Force close buffer" })
 
 map("n", "<C-c>", vim.cmd.nohlsearch, { desc = "Clear search highlight", silent = true })
 
--- cursor movement
-map("i", "<A-h>", "<Left>")
-map("i", "<A-l>", "<Right>")
-map("i", "<A-j>", "<Down>")
-map("i", "<A-k>", "<Up>")
-
 -- indent movement
-map("x", "<A-h>", "<gv")
-map("x", "<A-l>", ">gv")
+map("x", "<C-h>", "<gv")
+map("x", "<C-l>", ">gv")
 
 -- move selection
-map("x", "<A-j>", "<Cmd>move '>+1<CR>gv=gv")
-map("x", "<A-k>", "<Cmd>move '<-2<CR>gv=gv")
+map("x", "<C-j>", "<Cmd>move '>+1<CR>gv=gv")
+map("x", "<C-k>", "<Cmd>move '<-2<CR>gv=gv")

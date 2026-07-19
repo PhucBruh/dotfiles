@@ -1,5 +1,4 @@
 require("cyberdream").setup({
-  italic_comments = true,
   colors = {
     dark = {
       bg = "#16161e",
