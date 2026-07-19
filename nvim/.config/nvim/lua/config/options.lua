@@ -16,7 +16,7 @@ opt.termguicolors = true
 opt.laststatus = 3
 
 opt.statuscolumn = "%s%=%4l %C  "
-opt.statusline = "%f %m %= %y │ %l:%c "
+opt.statusline = " %f %m %= %y │ %l:%c "
 
 opt.fillchars = {
   eob = " ",

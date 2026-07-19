@@ -5,11 +5,12 @@ map("n", "<space>", "<Nop>")
 map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down & center" })
 map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up & center" })
 map("v", "<Leader>p", '"_dP', { desc = "Paste without overwriting" })
-map("x", "y", [["+y]], { desc = "Yank to system clipboard", silent = true })
+map({ "n", "x" }, "<Leader>y", [["+y]], { desc = "Yank to system clipboard" })
 
 map("n", "<C-Up>", "<cmd>resize +5<CR>", { desc = "Increase height" })
 map("n", "<C-Down>", "<cmd>resize -5<CR>", { desc = "Decrease height" })
 map("n", "<C-Right>", "<cmd>vertical resize +5<CR>", { desc = "Increase width" })
+map("n", "<C-Left>", "<cmd>vertical resize -5<CR>", { desc = "Decrease width" })
 
 -- save / quit
 map("x", "k", "k")
@@ -38,8 +39,16 @@ end, { desc = "Force close buffer" })
 
 map("n", "<C-c>", vim.cmd.nohlsearch, { desc = "Clear search highlight", silent = true })
 
--- Insert mode cursor movement
+-- cursor movement
 map("i", "<A-h>", "<Left>")
 map("i", "<A-l>", "<Right>")
 map("i", "<A-j>", "<Down>")
 map("i", "<A-k>", "<Up>")
+
+-- indent movement
+map("x", "<A-h>", "<gv")
+map("x", "<A-l>", ">gv")
+
+-- move selection
+map("x", "<A-j>", "<Cmd>move '>+1<CR>gv=gv")
+map("x", "<A-k>", "<Cmd>move '<-2<CR>gv=gv")
