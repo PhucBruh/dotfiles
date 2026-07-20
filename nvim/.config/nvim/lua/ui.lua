@@ -83,7 +83,7 @@ wk.add({
   { "<leader>f", group = "Find" },
   { "<leader>g", group = "Git" },
   { "<leader>z", group = "Notes" },
-  { "<leader>nf", group = "Navigate" },
+  { "<leader>d", group = "Debug" },
   { "g", group = "Goto / LSP" },
   { "z", group = "Folds" },
 })

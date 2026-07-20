@@ -1,7 +1,6 @@
 local map = vim.keymap.set
 
-require("origami").setup()
-require("nvim-surround").setup()
+require("origami").setup({})
 require("mini.indentscope").setup()
 require("mini.comment").setup()
 require("mini.pairs").setup()
@@ -45,17 +44,12 @@ require("oil").setup({
     ["<C-c>"] = { "actions.close", mode = "n" },
   },
   view_options = {
-    -- Show files and directories that start with "."
     show_hidden = true,
   },
 })
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 require("leap").setup({})
-require("leap").opts.preview = function(ch0, ch1, ch2)
-  return not (ch1:match("%s") or (ch0:match("%a") and ch1:match("%a") and ch2:match("%a")))
-end
-
 map({ "n", "x", "o" }, "s", "<Plug>(leap-forward)")
 map({ "n", "x", "o" }, "S", "<Plug>(leap-backward)")
 
@@ -84,3 +78,16 @@ map("n", "<M-h>", "<cmd>TmuxNavigateLeft<CR>")
 map("n", "<M-j>", "<cmd>TmuxNavigateDown<CR>")
 map("n", "<M-k>", "<cmd>TmuxNavigateUp<CR>")
 map("n", "<M-l>", "<cmd>TmuxNavigateRight<CR>")
+
+-- stylua: ignore
+require("mini.surround").setup({
+  mappings = {
+    add            = "gsa", -- Add surrounding (Normal & Visual)
+    delete         = "gsd", -- Delete surrounding
+    find           = "gsf", -- Find surrounding bên phải
+    find_left      = "gsF", -- Find surrounding bên trái
+    highlight      = "gsh", -- Highlight surrounding
+    replace        = "gsr", -- Replace surrounding
+    update_n_lines = "gsn",
+  },
+})

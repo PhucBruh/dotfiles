@@ -37,7 +37,7 @@ map("n", "<Leader>C", function()
   buf_close(true)
 end, { desc = "Force close buffer" })
 
-map("n", "<C-c>", vim.cmd.nohlsearch, { desc = "Clear search highlight", silent = true })
+map("n", "<Esc>", vim.cmd.nohlsearch, { silent = true })
 
 -- indent movement
 map("x", "<C-h>", "<gv")

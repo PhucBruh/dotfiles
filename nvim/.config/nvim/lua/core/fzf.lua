@@ -7,11 +7,11 @@ require("fzf-lua").setup({
     height = 0.95,
     preview = {
       border = "single",
-      layout = "vertical",
-      vertical = "up:60%",
     },
   },
-
+  files = {
+    cwd_prompt = false,
+  },
   file_ignore_patterns = {
     "^%.git/",
     "node_modules/",

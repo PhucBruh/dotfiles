@@ -1,34 +1,39 @@
-require("nvim-treesitter").setup({
+local ts = require("nvim-treesitter")
+
+ts.setup({
   install_dir = vim.fn.stdpath("data") .. "/site",
 })
 
-require("nvim-treesitter").install({
-  "lua",
+local parsers = {
+  "bash",
+  "css",
   "go",
   "gomod",
   "gosum",
-  "javascript",
-  "typescript",
-  "tsx",
   "html",
-  "css",
   "http",
+  "javascript",
   "json",
-  "yaml",
-  "toml",
+  "latex",
+  "lua",
   "markdown",
   "markdown_inline",
-  "bash",
   "python",
+  "query",
   "rust",
+  "toml",
+  "tsx",
+  "typescript",
   "vim",
   "vimdoc",
-  "query",
-  "latex",
-})
+  "yaml",
+}
+
+ts.install(parsers)
 
 vim.api.nvim_create_autocmd("FileType", {
-  callback = function(args)
-    pcall(vim.treesitter.start, args.buf)
+  pattern = parsers,
+  callback = function(ev)
+    vim.treesitter.start(ev.buf)
   end,
 })

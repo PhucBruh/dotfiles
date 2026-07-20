@@ -52,7 +52,6 @@ vim.pack.add({
   -- Editor & UX
   { src = gh("ibhagwan/fzf-lua") },
   { src = cb("andyg/leap.nvim") },
-  { src = gh("kylechui/nvim-surround"), version = vim.version.range("4.x") },
   { src = gh("chrisgrieser/nvim-origami") },
   { src = gh("christoomey/vim-tmux-navigator") },
 

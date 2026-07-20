@@ -3,7 +3,15 @@ local dapview = require("dap-view")
 local fzf = require("fzf-lua")
 local map = vim.keymap.set
 
-dapview.setup({})
+dapview.setup({
+  winbar = {
+    show_keymap_hints = false,
+  },
+  windows = {
+    size = 0.3,
+    position = "below",
+  },
+})
 
 -- operation
 -- stylua: ignore start
