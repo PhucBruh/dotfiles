@@ -19,13 +19,6 @@ autocmd("BufReadPost", {
   end,
 })
 
-autocmd("FileType", {
-  pattern = { "markdown", "md" },
-  callback = function()
-    vim.opt_local.wrap = true
-  end,
-})
-
 autocmd({ "WinEnter", "BufEnter" }, {
   callback = function()
     vim.wo.cursorline = true

@@ -42,7 +42,3 @@ map("n", "<Esc>", vim.cmd.nohlsearch, { silent = true })
 -- indent movement
 map("x", "<C-h>", "<gv")
 map("x", "<C-l>", ">gv")
-
--- move selection
-map("x", "<C-j>", "<Cmd>move '>+1<CR>gv=gv")
-map("x", "<C-k>", "<Cmd>move '<-2<CR>gv=gv")

@@ -17,7 +17,6 @@
 
   home.packages = with pkgs; [
     jujutsu
-
     stow
 
     # font
@@ -53,6 +52,7 @@
     tmux
 
     ### CLI tool
+    git # latest git version
     jq # better json parser
     bat # better cat
     starship # better prompt

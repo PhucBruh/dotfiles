@@ -12,7 +12,7 @@ vim.pack.add({
   { src = gh("igorlfs/nvim-dap-view"), version = vim.version.range("1.*") },
 
   -- Treesitter
-  { src = gh("nvim-treesitter/nvim-treesitter") },
+  { src = gh("romus204/tree-sitter-manager.nvim") },
 
   -- Formatting
   { src = gh("stevearc/conform.nvim") },
@@ -37,7 +37,7 @@ vim.pack.add({
 
   -- Markdown
   { src = gh("YousefHadder/markdown-plus.nvim") },
-  { src = gh("MeanderingProgrammer/render-markdown.nvim") },
+  { src = gh("OXY2DEV/markview.nvim") },
   { src = gh("techwizrd/render-latex.nvim") },
 
   -- Typst
@@ -56,6 +56,7 @@ vim.pack.add({
   { src = gh("christoomey/vim-tmux-navigator") },
 
   -- UI
+  { src = gh("nvim-lualine/lualine.nvim") },
   { src = gh("folke/which-key.nvim") },
   { src = gh("scottmckendry/cyberdream.nvim") },
   { src = gh("j-hui/fidget.nvim") },
