@@ -28,7 +28,6 @@
 
     # parser
     tree-sitter
-    clang
 
     ### Notes
     zk
@@ -37,6 +36,9 @@
     # Lua
     lua-language-server
     stylua
+    # lua5_1
+    # luarocks
+
     # Python
     pyrefly
     ruff
@@ -58,6 +60,8 @@
     starship # better prompt
     ripgrep # better grep
     delta # better diff/preview
+
+    taskwarrior2 # task manager
   ];
 
   fonts.fontconfig.enable = true;
