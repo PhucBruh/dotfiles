@@ -1,0 +1,12 @@
+session_name: monitor
+start_directory: "${PROJECT_DIR}"
+windows:
+  - window_name: btop
+    panes:
+      - shell_command: btop
+  - window_name: disk
+    panes:
+      - shell_command: df -h
+  - window_name: docker
+    panes:
+      - shell_command: docker ps

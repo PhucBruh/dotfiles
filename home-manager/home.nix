@@ -52,6 +52,7 @@
 
     ### terminal
     tmux
+    tmuxp
 
     ### CLI tool
     git # latest git version

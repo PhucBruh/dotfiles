@@ -1,0 +1,13 @@
+session_name: dev
+start_directory: "${PROJECT_DIR}"
+windows:
+  - window_name: code
+    layout: main-vertical
+    focus: true
+    panes:
+      - shell_command: nvim
+        focus: true
+      - shell_command: ls
+  - window_name: shell
+    panes:
+      - pane

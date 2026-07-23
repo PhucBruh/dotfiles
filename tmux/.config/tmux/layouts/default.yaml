@@ -1,0 +1,8 @@
+session_name: default
+start_directory: "${PROJECT_DIR}"
+windows:
+  - window_name: main
+    layout: even-vertical
+    panes:
+      - pane
+      - pane
