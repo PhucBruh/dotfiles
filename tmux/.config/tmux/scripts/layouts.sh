@@ -1,19 +1,18 @@
 #!/usr/bin/env bash
-# layouts.sh — tmuxifier layout picker (prefix f → l)
+# layouts.sh — tmuxp layout picker (prefix f → l)
 #
 # <C-w>:load with project dir
 
 set -uo pipefail
 source "$(cd "$(dirname "$0")" && pwd)/core.sh"
 
-TMUXIFIER_BIN="$HOME/.tmux/plugins/tmuxifier/bin/tmuxifier"
-[ -x "$TMUXIFIER_BIN" ] || exit 1
-export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmux/layouts"
+command -v tmuxp >/dev/null || exit 1
+LAYOUT_DIR="$HOME/.config/tmux/layouts"
 
 SELF="$(readlink -f "$0")"
 
 if [ "${1:-}" = "--preview" ]; then
-    path="$TMUXIFIER_LAYOUT_PATH/${2}.session.sh"
+    path="$LAYOUT_DIR/${2}.yaml"
     [ -f "$path" ] && tl::preview::file "$path" || echo "(unknown)"
     exit 0
 fi
@@ -37,8 +36,15 @@ pick_project_dir() {
     esac
 }
 
+items() {
+    for f in "$LAYOUT_DIR"/*.yaml; do
+        [ -f "$f" ] || continue
+        basename "$f" .yaml
+    done
+}
+
 while true; do
-    result="$("$TMUXIFIER_BIN" list-sessions 2>/dev/null | tl::fzf \
+    result="$(items | tl::fzf \
         --border-label ' Layout ' \
         --prompt '> ' \
         --header "<C-w>:load dir" \
@@ -55,11 +61,11 @@ while true; do
         ctrl-w)
             project_dir="$(pick_project_dir)"
             [ -z "$project_dir" ] && continue
-            PROJECT_DIR="$project_dir" "$TMUXIFIER_BIN" load-session "$name"
+            PROJECT_DIR="$project_dir" tmuxp load -y "$LAYOUT_DIR/$name.yaml"
             exit 0
             ;;
         *)
-            PROJECT_DIR="$(tl::current_path)" "$TMUXIFIER_BIN" load-session "$name"
+            PROJECT_DIR="$(tl::current_path)" tmuxp load -y "$LAYOUT_DIR/$name.yaml"
             exit 0
             ;;
     esac
