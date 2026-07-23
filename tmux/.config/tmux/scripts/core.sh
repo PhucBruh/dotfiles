@@ -59,12 +59,22 @@ tl::preview::pane() {
 }
 
 tl::preview::session() {
-    local session="$1"
-    tmux list-windows -t "$session" -F '#{window_index}' | while read -r win; do
-        local name cmd
-        name="$(tmux display-message -p -t "${session}:${win}" '#{window_name}')"
-        cmd="$(tmux display-message -p -t "${session}:${win}" '#{pane_current_command}')"
-        printf '  %s: %s  (%s)\n' "$win" "$name" "$cmd"
+    local highlight="${1:-}"
+    local icon="󰘍"
+    tmux list-sessions -F '#{session_id}' 2>/dev/null | while read -r s; do
+        local sname
+        sname="$(tmux list-sessions -F '#{session_id} #{session_name}' | grep "^$s" | awk '{print $2}')"
+        if [[ -n "$highlight" && "$highlight" == "$sname" ]]; then
+            printf '\033[1;34m%s:\033[0m\n' "$sname"
+        else
+            printf '\033[1m%s:\033[0m\n' "$sname"
+        fi
+        tmux list-windows -t "$s" -F '#{window_id}' 2>/dev/null | while read -r w; do
+            local wname widx
+            widx="$(tmux list-windows -t "$s" -F '#{window_id} #{window_index}' | grep "^$w" | awk '{print $2}')"
+            wname="$(tmux list-windows -t "$s" -F '#{window_id} #{window_name}' | grep "^$w" | awk '{print $2}')"
+            printf '  %s %s: %s\n' "$icon" "$widx" "$wname"
+        done
     done
 }
 
