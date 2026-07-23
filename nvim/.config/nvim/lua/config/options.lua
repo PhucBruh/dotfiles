@@ -32,8 +32,6 @@ opt.fillchars = {
 
 -- fold
 opt.foldenable = true
-opt.foldlevel = 99
-opt.foldlevelstart = 99
 
 -- indent
 opt.expandtab = true
@@ -73,3 +71,4 @@ opt.timeoutlen = 300
 opt.updatetime = 200
 
 opt.confirm = true
+opt.cmdheight = 0

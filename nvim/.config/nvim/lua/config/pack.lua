@@ -39,6 +39,7 @@ vim.pack.add({
   { src = gh("YousefHadder/markdown-plus.nvim") },
   { src = gh("OXY2DEV/markview.nvim") },
   { src = gh("techwizrd/render-latex.nvim") },
+  -- { src = gh("rv178/txm.nvim") },
 
   -- Typst
   { src = gh("chomosuke/typst-preview.nvim") },

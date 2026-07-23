@@ -1,6 +1,6 @@
 # Neovim Config
 
-Minimal and clean Neovim configuration powered by native package management.
+- Minimal and clean Neovim configuration powered by native package management.
 
 ## Philosophy
 
@@ -59,3 +59,14 @@ Minimal and clean Neovim configuration powered by native package management.
 | `K` | LSP Hover doc |
 | `-` | Open parent dir (Oil) |
 | `s` / `S` | Jump forward / backward (Leap) |
+
+
+$$
+\operatorname{MultiHead}(Q,K,V) =
+\operatorname{Concat}
+(
+head_1,\ldots,head_h
+)
+W^O
+$$
+

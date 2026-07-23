@@ -42,11 +42,6 @@ require("markview").setup({
         icon = "󰎴  ",
       },
     },
-    list_items = {
-      marker_minus = { text = "•" },
-      marker_plus = { text = "•" },
-      marker_star = { text = "•" },
-    },
     tables = presets.tables.single,
     block_quotes = presets.block_quotes.obsidian,
   },

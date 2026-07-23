@@ -53,14 +53,31 @@
       "rev": "d7f8ee64155b7790188f17a993390f32577cfb81",
       "src": "https://codeberg.org/andyg/leap.nvim"
     },
+    "lualine.nvim": {
+      "rev": "221ce6b2d999187044529f49da6554a92f740a96",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
     "markdown-plus.nvim": {
       "rev": "320c5309705690be5929210b26c626405fd40b7a",
       "src": "git@github.com:YousefHadder/markdown-plus.nvim"
+    },
+    "markview.nvim": {
+      "rev": "2471f4097f8561a6880a0fe05ee0f21cbc82b374",
+      "src": "git@github.com:OXY2DEV/markview.nvim"
     },
     "mini.nvim": {
       "rev": "1345d191bb3da9c7b0e977f4387c5761f9bff68d",
       "src": "git@github.com:nvim-mini/mini.nvim",
       "version": "'stable'"
+    },
+    "nvim-dap": {
+      "rev": "9e848e09a697ee95302a3ef2dd43fd6eb709e570",
+      "src": "git@github.com:mfussenegger/nvim-dap"
+    },
+    "nvim-dap-view": {
+      "rev": "b8c8aa91f42055d7f69012587cde4f1d99f2a701",
+      "src": "git@github.com:igorlfs/nvim-dap-view",
+      "version": "1.0.0 - 2.0.0"
     },
     "nvim-lspconfig": {
       "rev": "bfcc0171a43f22afa61d927ffe9fcb6cb85dc99e",
@@ -83,9 +100,17 @@
       "rev": "851e865342e5a4cb1ae23d31caf6e991e1c99f1e",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
     },
+    "nvim-ufo": {
+      "rev": "ab3eb124062422d276fae49e0dd63b3ad1062cfc",
+      "src": "git@github.com:kevinhwang91/nvim-ufo"
+    },
     "oil.nvim": {
       "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
       "src": "git@github.com:stevearc/oil.nvim"
+    },
+    "promise-async": {
+      "rev": "119e8961014c9bfaf1487bf3c2a393d254f337e2",
+      "src": "git@github.com:kevinhwang91/promise-async"
     },
     "render-latex.nvim": {
       "rev": "c5a546bfc9511e3197461e310e9f248e3c8a2d36",
@@ -100,22 +125,37 @@
       "src": "git@github.com:mrcjkb/rustaceanvim",
       "version": "9.0.0 - 10.0.0"
     },
+    "snacks.nvim": {
+      "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
+      "src": "git@github.com:folke/snacks.nvim"
+    },
     "tmux.nvim": {
       "rev": "32ceaf2793582955ef9576809730878c4d2d9426",
       "src": "git@github.com:aserowy/tmux.nvim"
     },
     "tree-sitter-manager.nvim": {
       "rev": "09e3a321eea8100cacd2e759c3a6c9d350295fab",
-      "src": "https://github.com/romus204/tree-sitter-manager.nvim",
-      "version": "'develop'"
+      "src": "https://github.com/romus204/tree-sitter-manager.nvim"
+    },
+    "txm.nvim": {
+      "rev": "6729cea25ec6febfc12823f2fa30a5567b67d785",
+      "src": "https://github.com/rv178/txm.nvim"
     },
     "typst-preview.nvim": {
       "rev": "87db18b8d19c8b0eed399f52e4c527ce5afe4817",
       "src": "git@github.com:chomosuke/typst-preview.nvim"
     },
+    "vim-tmux-navigator": {
+      "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
+      "src": "git@github.com:christoomey/vim-tmux-navigator"
+    },
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
       "src": "git@github.com:folke/which-key.nvim"
+    },
+    "yamlmatter.nvim": {
+      "rev": "dc81824dc31ecb46ac89077dc8aa9b86fb32ef4a",
+      "src": "git@github.com:ray-x/yamlmatter.nvim"
     },
     "zk-nvim": {
       "rev": "bca7e4a119353f18f2a819385fb7ce10269ef747",

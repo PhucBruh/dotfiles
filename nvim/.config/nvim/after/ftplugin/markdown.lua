@@ -1,5 +1,6 @@
-vim.wo.conceallevel = 3
-vim.wo.concealcursor = "nc"
+-- vim.wo.conceallevel = 2
+-- vim.wo.concealcursor = "nc"
+vim.opt.wrap = false
 
 local map = function(mode, lhs, rhs, desc)
   vim.keymap.set(mode, lhs, rhs, { buffer = true, desc = desc })
@@ -48,9 +49,3 @@ map({ "n", "x" }, "mq", "<Plug>(MarkdownPlusToggleQuote)", "Toggle quote")
 
 -- Thematic break
 map("n", "mhb", "<Plug>(MarkdownPlusInsertThematicBreak)", "Insert break")
-
-vim.keymap.set({ "i" }, "<C-j>", "<CR>", {
-  buffer = true,
-  remap = true,
-  desc = "Markdown Enter",
-})

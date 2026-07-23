@@ -12,11 +12,7 @@ map_pairs("<C-h>", "v:lua.MiniPairs.bs()")
 map_pairs("<C-w>", 'v:lua.MiniPairs.bs("\23")')
 map_pairs("<C-u>", 'v:lua.MiniPairs.bs("\21")')
 
-local ai = require("mini.ai")
-
-ai.setup({
-  n_lines = 500,
-})
+require("mini.ai").setup()
 
 require("mini.files").setup({
   windows = {
@@ -60,9 +56,7 @@ require("mini.diff").setup({
   },
 })
 
-map("n", "go", function()
-  require("mini.diff").toggle_overlay(0)
-end, { desc = "Toggle diff overlay" })
+map("n", "go", require("mini.diff").toggle_overlay, { desc = "Toggle diff overlay" })
 
 require("mini.jump").setup()
 local jump_stop = function()

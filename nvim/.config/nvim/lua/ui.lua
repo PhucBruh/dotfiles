@@ -31,6 +31,12 @@ require("cyberdream").setup({
       MarkviewYmlNumber = { fg = c.fg },
       MarkviewYmlList = { fg = c.magenta },
       MarkviewYmlEmpty = { fg = c.fg },
+
+      MarkviewTableHeader = { fg = c.blue },
+      MarkviewTableBorder = { fg = c.fg },
+      MarkviewTableAlignLeft = { fg = c.fg },
+      MarkviewTableAlignRight = { fg = c.fg },
+      MarkviewTableAlignCenter = { fg = c.fg },
     }
   end,
 })
